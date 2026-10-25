@@ -1,0 +1,262 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">SmartSaver Hub Wiring</title>
+  <desc id="desc">Functional pin map for the ESP32 hub, DS3231, DHT11, RCWL-0516, LM393 light module, and active buzzer.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 28px; font-weight: 650; fill: #17212b; }
+    .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 14px; fill: #5b6675; }
+    .box { fill: #ffffff; stroke: #17212b; stroke-width: 1.5; rx: 6; }
+    .head { fill: #f7f8fa; stroke: none; }
+    .module { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 20px; font-weight: 650; fill: #17212b; }
+    .sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 13px; fill: #5b6675; }
+    .pin { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; fill: #17212b; }
+    .net { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; font-weight: 650; }
+    .wire { fill: none; stroke: #2b6f78; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .p5 { fill: none; stroke: #9a671f; stroke-width: 2.5; stroke-linecap: round; }
+    .p33 { fill: none; stroke: #6b4f9a; stroke-width: 2.5; stroke-linecap: round; }
+    .gnd { fill: none; stroke: #34495e; stroke-width: 2.5; stroke-linecap: round; }
+    .flag5 { fill: #9a671f; }
+    .flag33 { fill: #6b4f9a; }
+    .gndfill { fill: #34495e; }
+    .dot { fill: #2b6f78; }
+    .legend { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 12px; fill: #5b6675; }
+    .note { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 12px; fill: #5b6675; }
+  </style>
+
+  <rect class="bg" x="0" y="0" width="1600" height="1000"/>
+  <text class="title" x="40" y="52">SmartSaver Hub Wiring</text>
+  <text class="subtitle" x="40" y="78">Paper Circuit · functional pin map, not physical header order</text>
+
+  <!-- DS3231 -->
+  <g id="ds3231">
+    <rect class="box" x="620" y="110" width="360" height="110"/>
+    <rect class="head" x="620" y="110" width="360" height="34"/>
+    <text class="module" x="638" y="133">DS3231 RTC</text>
+    <text class="sub" x="638" y="157">I2C · 3.3 V</text>
+    <text class="pin" x="638" y="190">SDA</text>
+    <text class="pin" x="858" y="190">SCL</text>
+    <text class="pin" x="700" y="205" text-anchor="middle">SDA 21</text>
+    <text class="pin" x="900" y="205" text-anchor="middle">SCL 22</text>
+    <!-- VCC / GND -->
+    <line class="p33" x1="620" y1="170" x2="590" y2="170"/>
+    <polygon class="flag33" points="590,170 600,165 600,175"/>
+    <text class="net" x="570" y="174" text-anchor="end" fill="#6b4f9a">+3.3 V</text>
+    <line class="gnd" x1="980" y1="170" x2="1005" y2="170"/>
+    <line class="gnd" x1="1005" y1="170" x2="1005" y2="178"/>
+    <line class="gnd" x1="995" y1="178" x2="1015" y2="178"/>
+    <line class="gnd" x1="999" y1="184" x2="1011" y2="184"/>
+    <line class="gnd" x1="1003" y1="190" x2="1007" y2="190"/>
+    <text class="net" x="1030" y="174" fill="#34495e">GND</text>
+  </g>
+
+  <!-- ESP32 -->
+  <g id="esp32">
+    <rect class="box" x="560" y="260" width="400" height="470"/>
+    <rect class="head" x="560" y="260" width="400" height="45"/>
+    <text class="module" x="580" y="289">ESP32 Dev Module</text>
+    <text class="sub" x="580" y="307">Hub · 3.3 V logic · 5 V input</text>
+
+    <!-- top I2C pins -->
+    <text class="pin" x="680" y="252" text-anchor="end">SDA 21</text>
+    <text class="pin" x="920" y="252">SCL 22</text>
+    <line class="wire" x1="700" y1="220" x2="700" y2="260"/>
+    <line class="wire" x1="900" y1="220" x2="900" y2="260"/>
+
+    <!-- left pins -->
+    <text class="pin" x="580" y="348">3V3</text>
+    <text class="pin" x="580" y="388">GND</text>
+    <text class="pin" x="580" y="448">GPIO 27</text>
+    <text class="pin" x="580" y="488">GPIO 4</text>
+    <text class="pin" x="580" y="528">GPIO 34</text>
+
+    <!-- right pins -->
+    <text class="pin" x="940" y="468" text-anchor="end">GPIO 26</text>
+    <text class="pin" x="940" y="528" text-anchor="end">5V</text>
+    <text class="pin" x="940" y="568" text-anchor="end">GND</text>
+
+    <!-- ESP32 3V3 feeds the 3.3 V sensor rail -->
+    <line class="p33" x1="560" y1="345" x2="530" y2="345"/>
+    <polygon class="flag33" points="530,345 540,340 540,350"/>
+    <text class="net" x="510" y="349" text-anchor="end" fill="#6b4f9a">+3.3 V</text>
+
+    <!-- ESP32 ground -->
+    <line class="gnd" x1="560" y1="385" x2="535" y2="385"/>
+    <line class="gnd" x1="535" y1="385" x2="535" y2="393"/>
+    <line class="gnd" x1="525" y1="393" x2="545" y2="393"/>
+    <line class="gnd" x1="529" y1="399" x2="541" y2="399"/>
+    <line class="gnd" x1="533" y1="405" x2="537" y2="405"/>
+    <text class="net" x="515" y="389" text-anchor="end" fill="#34495e">GND</text>
+
+    <!-- 5V flag -->
+    <line class="p5" x1="960" y1="525" x2="990" y2="525"/>
+    <polygon class="flag5" points="990,525 980,520 980,530"/>
+    <text class="net" x="1010" y="529" fill="#9a671f">+5 V</text>
+
+    <!-- right ground -->
+    <line class="gnd" x1="960" y1="565" x2="985" y2="565"/>
+    <line class="gnd" x1="985" y1="565" x2="985" y2="573"/>
+    <line class="gnd" x1="975" y1="573" x2="995" y2="573"/>
+    <line class="gnd" x1="979" y1="579" x2="991" y2="579"/>
+    <line class="gnd" x1="983" y1="585" x2="987" y2="585"/>
+    <text class="net" x="1010" y="569" fill="#34495e">GND</text>
+  </g>
+
+  <!-- RCWL-0516 -->
+  <g id="rcwl">
+    <rect class="box" x="80" y="130" width="230" height="145"/>
+    <rect class="head" x="80" y="130" width="230" height="34"/>
+    <text class="module" x="98" y="153">RCWL-0516</text>
+    <text class="sub" x="98" y="177">microwave motion</text>
+    <text class="pin" x="92" y="205">VIN</text>
+    <text class="pin" x="92" y="240">OUT</text>
+    <text class="pin" x="92" y="266">GND</text>
+    <!-- VIN 5V -->
+    <line class="p5" x1="310" y1="200" x2="340" y2="200"/>
+    <polygon class="flag5" points="340,200 330,195 330,205"/>
+    <text class="net" x="350" y="204" fill="#9a671f">+5 V</text>
+    <!-- OUT -->
+    <line class="wire" x1="310" y1="236" x2="520" y2="236"/>
+    <line class="wire" x1="520" y1="236" x2="520" y2="445"/>
+    <line class="wire" x1="520" y1="445" x2="560" y2="445"/>
+    <text class="note" x="330" y="228">OUT → GPIO 27</text>
+    <!-- GND -->
+    <line class="gnd" x1="310" y1="270" x2="335" y2="270"/>
+    <line class="gnd" x1="335" y1="270" x2="335" y2="278"/>
+    <line class="gnd" x1="325" y1="278" x2="345" y2="278"/>
+    <line class="gnd" x1="329" y1="284" x2="341" y2="284"/>
+    <line class="gnd" x1="333" y1="290" x2="337" y2="290"/>
+  </g>
+
+  <!-- DHT11 -->
+  <g id="dht">
+    <rect class="box" x="80" y="350" width="230" height="145"/>
+    <rect class="head" x="80" y="350" width="230" height="34"/>
+    <text class="module" x="98" y="373">DHT11</text>
+    <text class="sub" x="98" y="397">temperature + humidity</text>
+    <text class="pin" x="92" y="425">VCC</text>
+    <text class="pin" x="92" y="460">DATA</text>
+    <text class="pin" x="92" y="492">GND</text>
+    <!-- VCC 3.3 -->
+    <line class="p33" x1="310" y1="420" x2="340" y2="420"/>
+    <polygon class="flag33" points="340,420 330,415 330,425"/>
+    <text class="net" x="350" y="424" fill="#6b4f9a">+3.3 V</text>
+    <!-- DATA -->
+    <line class="wire" x1="310" y1="455" x2="460" y2="455"/>
+    <line class="wire" x1="460" y1="455" x2="460" y2="485"/>
+    <line class="wire" x1="460" y1="485" x2="560" y2="485"/>
+    <text class="note" x="330" y="447">DATA → GPIO 4 · 10 kΩ pull-up</text>
+    <!-- GND -->
+    <line class="gnd" x1="310" y1="487" x2="335" y2="487"/>
+    <line class="gnd" x1="335" y1="487" x2="335" y2="495"/>
+    <line class="gnd" x1="325" y1="495" x2="345" y2="495"/>
+    <line class="gnd" x1="329" y1="501" x2="341" y2="501"/>
+    <line class="gnd" x1="333" y1="507" x2="337" y2="507"/>
+  </g>
+
+  <!-- LM393 light -->
+  <g id="light">
+    <rect class="box" x="80" y="560" width="230" height="145"/>
+    <rect class="head" x="80" y="560" width="230" height="34"/>
+    <text class="module" x="98" y="583">LM393 Light</text>
+    <text class="sub" x="98" y="607">digital DO · trimpot threshold</text>
+    <text class="pin" x="92" y="635">VCC</text>
+    <text class="pin" x="92" y="670">DO</text>
+    <text class="pin" x="92" y="702">GND</text>
+    <!-- VCC 3.3 -->
+    <line class="p33" x1="310" y1="630" x2="340" y2="630"/>
+    <polygon class="flag33" points="340,630 330,625 330,635"/>
+    <text class="net" x="350" y="634" fill="#6b4f9a">+3.3 V</text>
+    <!-- DO -->
+    <line class="wire" x1="310" y1="665" x2="500" y2="665"/>
+    <line class="wire" x1="500" y1="665" x2="500" y2="525"/>
+    <line class="wire" x1="500" y1="525" x2="560" y2="525"/>
+    <text class="note" x="330" y="657">DO → GPIO 34</text>
+    <!-- GND -->
+    <line class="gnd" x1="310" y1="697" x2="335" y2="697"/>
+    <line class="gnd" x1="335" y1="697" x2="335" y2="705"/>
+    <line class="gnd" x1="325" y1="705" x2="345" y2="705"/>
+    <line class="gnd" x1="329" y1="711" x2="341" y2="711"/>
+    <line class="gnd" x1="333" y1="717" x2="337" y2="717"/>
+  </g>
+
+  <!-- Buzzer -->
+  <g id="buzzer">
+    <rect class="box" x="1130" y="390" width="220" height="140"/>
+    <rect class="head" x="1130" y="390" width="220" height="34"/>
+    <text class="module" x="1148" y="413">Active Buzzer</text>
+    <text class="sub" x="1148" y="437">3-pin module</text>
+    <text class="pin" x="1142" y="465">VCC</text>
+    <text class="pin" x="1142" y="500">I/O</text>
+    <text class="pin" x="1142" y="530">GND</text>
+    <!-- VCC 5V -->
+    <line class="p5" x1="1130" y1="460" x2="1100" y2="460"/>
+    <polygon class="flag5" points="1100,460 1110,455 1110,465"/>
+    <text class="net" x="1090" y="464" text-anchor="end" fill="#9a671f">+5 V</text>
+    <!-- I/O -->
+    <line class="wire" x1="1130" y1="495" x2="1080" y2="495"/>
+    <line class="wire" x1="1080" y1="495" x2="1080" y2="465"/>
+    <line class="wire" x1="1080" y1="465" x2="960" y2="465"/>
+    <text class="note" x="1130" y="565">I/O → GPIO 26</text>
+    <!-- GND -->
+    <line class="gnd" x1="1130" y1="525" x2="1105" y2="525"/>
+    <line class="gnd" x1="1105" y1="525" x2="1105" y2="533"/>
+    <line class="gnd" x1="1095" y1="533" x2="1115" y2="533"/>
+    <line class="gnd" x1="1099" y1="539" x2="1111" y2="539"/>
+    <line class="gnd" x1="1103" y1="545" x2="1107" y2="545"/>
+  </g>
+
+  <!-- AC PSU -->
+  <g id="psu">
+    <rect class="box" x="60" y="790" width="240" height="100"/>
+    <rect class="head" x="60" y="790" width="240" height="32"/>
+    <text class="module" x="78" y="812" font-size="17">AC PSU</text>
+    <text class="sub" x="78" y="836">silver cage · 12 V / 5 A DC</text>
+    <line class="p5" x1="300" y1="820" x2="340" y2="820"/>
+    <text class="net" x="320" y="812" text-anchor="middle" fill="#9a671f">+12 V</text>
+    <line class="gnd" x1="300" y1="865" x2="340" y2="865"/>
+    <text class="net" x="320" y="883" text-anchor="middle" fill="#34495e">GND</text>
+  </g>
+
+  <!-- 12V to 5V distribution buck -->
+  <g id="buck5">
+    <rect class="box" x="340" y="790" width="250" height="100"/>
+    <rect class="head" x="340" y="790" width="250" height="32"/>
+    <text class="module" x="358" y="812" font-size="17">12 V → 5 V</text>
+    <text class="sub" x="358" y="836">10 A distribution rail</text>
+    <text class="pin" x="352" y="824">IN+</text>
+    <text class="pin" x="352" y="864">IN−</text>
+    <text class="pin" x="570" y="824" text-anchor="end">OUT+</text>
+    <text class="pin" x="570" y="864" text-anchor="end">OUT−</text>
+    <line class="p5" x1="590" y1="820" x2="630" y2="820"/>
+    <text class="net" x="610" y="812" text-anchor="middle" fill="#9a671f">+5 V</text>
+    <line class="gnd" x1="590" y1="865" x2="630" y2="865"/>
+  </g>
+
+  <!-- 5V to microUSB -->
+  <g id="microusb">
+    <rect class="box" x="630" y="790" width="220" height="100"/>
+    <rect class="head" x="630" y="790" width="220" height="32"/>
+    <text class="module" x="648" y="812" font-size="17">Micro-USB</text>
+    <text class="sub" x="648" y="836">5 V into the ESP32</text>
+    <text class="pin" x="642" y="824">IN+</text>
+    <text class="pin" x="642" y="864">IN−</text>
+    <line class="p5" x1="740" y1="790" x2="740" y2="730"/>
+    <text class="note" x="750" y="760">5 V cable to ESP32</text>
+  </g>
+
+  <!-- Legend -->
+  <g id="legend">
+    <text class="legend" x="900" y="840" font-weight="650">Legend</text>
+    <line class="p5" x1="900" y1="865" x2="930" y2="865"/>
+    <text class="legend" x="940" y="869">+12 V / +5 V</text>
+    <line class="p33" x1="1050" y1="865" x2="1080" y2="865"/>
+    <text class="legend" x="1090" y="869">+3.3 V</text>
+    <line class="gnd" x1="1160" y1="865" x2="1190" y2="865"/>
+    <text class="legend" x="1200" y="869">GND</text>
+    <line class="wire" x1="1260" y1="865" x2="1290" y2="865"/>
+    <text class="legend" x="1300" y="869">signal</text>
+    <text class="note" x="900" y="905">5 V rail → microUSB → ESP32; also RCWL-0516, buzzer, auxiliary.</text>
+    <text class="note" x="900" y="925">ESP32 3V3 pin → +3.3 V sensor rail (DS3231, DHT11, LM393).</text>
+    <text class="note" x="900" y="945">All grounds are common.</text>
+  </g>
+</svg>

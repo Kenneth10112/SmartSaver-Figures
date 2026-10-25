@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">DFD Level 1</title>
+  <desc id="desc">Level 1 data flow for pairing, filtering, rule evaluation, dispatch, publication, and reporting.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 28px; font-weight: 650; fill: #17212b; }
+    .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 14px; fill: #5b6675; }
+    .entity { fill: #ffffff; stroke: #17212b; stroke-width: 1.5; }
+    .process { fill: #ffffff; stroke: #2f6b4f; stroke-width: 2; rx: 8; }
+    .store { fill: #ffffff; stroke: #5b6675; stroke-width: 1.5; }
+    .label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 16px; font-weight: 650; fill: #17212b; }
+    .num { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; font-weight: 700; fill: #2f6b4f; }
+    .storenum { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 11px; font-weight: 700; fill: #5b6675; }
+    .sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 11px; fill: #5b6675; }
+    .arrow { fill: none; stroke: #2b6f78; stroke-width: 2; marker-end: url(#arrow); }
+    .arrowd { fill: none; stroke: #5b6675; stroke-width: 2; stroke-dasharray: 5 4; marker-end: url(#arrowm); }
+    .tag { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 10.5px; fill: #5b6675; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0 0, 9 3.5, 0 7" fill="#2b6f78"/></marker>
+    <marker id="arrowm" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0 0, 9 3.5, 0 7" fill="#5b6675"/></marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1600" height="1000"/>
+  <text class="title" x="40" y="52">DFD Level 1</text>
+  <text class="subtitle" x="40" y="78">Pairing · acquisition · rule evaluation · dispatch · publication · reporting</text>
+
+  <!-- external entities -->
+  <g id="occupant">
+    <rect class="entity" x="60" y="100" width="220" height="90"/>
+    <text class="label" x="78" y="128">Occupant</text>
+    <text class="sub" x="78" y="152">browser · rules · override</text>
+    <text class="sub" x="78" y="170">approves pairing</text>
+  </g>
+  <g id="sensors">
+    <rect class="entity" x="60" y="280" width="220" height="90"/>
+    <text class="label" x="78" y="308">Wired Sensors</text>
+    <text class="sub" x="78" y="332">motion · climate · light</text>
+    <text class="sub" x="78" y="350">RTC timestamp</text>
+  </g>
+  <g id="modules">
+    <rect class="entity" x="60" y="460" width="220" height="90"/>
+    <text class="label" x="78" y="488">Wireless Modules</text>
+    <text class="sub" x="78" y="512">relay / motion</text>
+    <text class="sub" x="78" y="530">ESP-NOW</text>
+  </g>
+  <g id="savings">
+    <rect class="entity" x="1240" y="100" width="220" height="90"/>
+    <text class="label" x="1258" y="128">Savings Dashboard</text>
+    <text class="sub" x="1258" y="152">browser · HTTPS</text>
+    <text class="sub" x="1258" y="170">queries and exports</text>
+  </g>
+
+  <!-- processes -->
+  <g id="p1">
+    <rect class="process" x="340" y="100" width="220" height="90"/>
+    <text class="num" x="356" y="122">1.0</text>
+    <text class="label" x="356" y="146">Pair + registry</text>
+    <text class="sub" x="356" y="168">HELLO · approve · mod_id</text>
+  </g>
+  <g id="p2">
+    <rect class="process" x="340" y="280" width="220" height="90"/>
+    <text class="num" x="356" y="302">2.0</text>
+    <text class="label" x="356" y="326">Acquire + filter</text>
+    <text class="sub" x="356" y="348">median · hysteresis</text>
+  </g>
+  <g id="p3">
+    <rect class="process" x="640" y="280" width="220" height="90"/>
+    <text class="num" x="656" y="302">3.0</text>
+    <text class="label" x="656" y="326">Evaluate rules</text>
+    <text class="sub" x="656" y="348">priority · override</text>
+  </g>
+  <g id="p4">
+    <rect class="process" x="640" y="460" width="220" height="90"/>
+    <text class="num" x="656" y="482">4.0</text>
+    <text class="label" x="656" y="506">Dispatch</text>
+    <text class="sub" x="656" y="528">GPIO · ESP-NOW</text>
+  </g>
+  <g id="p5">
+    <rect class="process" x="940" y="460" width="220" height="90"/>
+    <text class="num" x="956" y="482">5.0</text>
+    <text class="label" x="956" y="506">Publish queue</text>
+    <text class="sub" x="956" y="528">batch · retry</text>
+  </g>
+  <g id="p6">
+    <rect class="process" x="1240" y="460" width="220" height="90"/>
+    <text class="num" x="1256" y="482">6.0</text>
+    <text class="label" x="1256" y="506">Store + compute</text>
+    <text class="sub" x="1256" y="528">savings · health</text>
+  </g>
+
+  <!-- data stores -->
+  <g id="d1">
+    <rect class="store" x="340" y="680" width="220" height="90" fill="#ffffff" stroke="#5b6675" stroke-width="1.5"/>
+    <line class="store" x1="340" y1="704" x2="560" y2="704"/>
+    <text class="storenum" x="356" y="700">D1</text>
+    <text class="label" x="386" y="700">registry + rules</text>
+    <text class="sub" x="356" y="728">devices.json · parts.json</text>
+    <text class="sub" x="356" y="748">rules.json</text>
+  </g>
+  <g id="d2">
+    <rect class="store" x="640" y="680" width="220" height="90"/>
+    <line class="store" x1="640" y1="704" x2="860" y2="704"/>
+    <text class="storenum" x="656" y="700">D2</text>
+    <text class="label" x="686" y="700">event queue</text>
+    <text class="sub" x="656" y="728">in-memory batch</text>
+    <text class="sub" x="656" y="748">posting backlog</text>
+  </g>
+  <g id="d3">
+    <rect class="store" x="1240" y="680" width="220" height="90"/>
+    <line class="store" x1="1240" y1="704" x2="1460" y2="704"/>
+    <text class="storenum" x="1256" y="700">D3</text>
+    <text class="label" x="1286" y="700">SQLite</text>
+    <text class="sub" x="1256" y="728">readings · actuator_events</text>
+    <text class="sub" x="1256" y="748">topology · config · cost</text>
+  </g>
+
+  <!-- flows -->
+  <line class="arrow" x1="280" y1="145" x2="340" y2="145"/>
+  <text class="tag" x="286" y="137">approve</text>
+  <path class="arrow" d="M 340 180 L 330 180 L 330 215 L 45 215 L 45 725 L 340 725"/>
+  <text class="tag" x="58" y="700">registry</text>
+  <path class="arrow" d="M 560 145 L 600 145 L 600 240 L 640 240 L 640 280"/>
+  <text class="tag" x="606" y="232">registry + rules</text>
+
+  <line class="arrow" x1="280" y1="325" x2="340" y2="325"/>
+  <text class="tag" x="286" y="317">raw</text>
+  <line class="arrow" x1="560" y1="325" x2="640" y2="325"/>
+  <text class="tag" x="566" y="317">filtered</text>
+
+  <path class="arrow" d="M 450 370 L 450 420 L 700 420 L 700 460"/>
+  <text class="tag" x="460" y="412">filtered values</text>
+
+  <line class="arrow" x1="750" y1="370" x2="750" y2="460"/>
+  <text class="tag" x="760" y="412">selected command</text>
+  <line class="arrow" x1="640" y1="505" x2="280" y2="505"/>
+  <text class="tag" x="450" y="497">command</text>
+
+  <path class="arrow" d="M 750 550 L 750 590 L 740 590 L 740 680"/>
+  <text class="tag" x="755" y="618">events</text>
+  <path class="arrow" d="M 450 280 L 450 255 L 620 255 L 620 725 L 640 725"/>
+  <text class="tag" x="460" y="247">readings</text>
+
+  <path class="arrow" d="M 820 680 L 820 620 L 980 620 L 980 550"/>
+  <text class="tag" x="826" y="612">batch</text>
+  <line class="arrow" x1="1160" y1="505" x2="1240" y2="505"/>
+  <text class="tag" x="1170" y="497">HTTPS</text>
+
+  <path class="arrow" d="M 1340 550 L 1340 600 L 1460 600 L 1460 680"/>
+  <text class="tag" x="1346" y="618">store</text>
+
+  <path class="arrow" d="M 1460 460 L 1520 460 L 1520 145 L 1460 145"/>
+  <text class="tag" x="1474" y="220">query + dashboard</text>
+
+  <!-- notes -->
+  <text class="tag" x="60" y="850">D1 is the Hub's local JSON registry and rule storage; a truncated load is rejected rather than overwritten.</text>
+  <text class="tag" x="60" y="872">D2 is an in-memory queue; the History Server is optional, so local control never waits on it.</text>
+  <text class="tag" x="60" y="894">D3 is the server's SQLite database; the browser reads it through the History Server, never directly.</text>
+</svg>

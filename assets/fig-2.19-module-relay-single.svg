@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 820" role="img" aria-labelledby="title desc">
+  <title id="title">Single-Channel Light-Fixture Relay</title>
+  <desc id="desc">ESP32-C3 with a single-channel 5 V relay. IN is GPIO 3, GPIO 4 is unused, the fixture is switched on the normally-open contact.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 28px; font-weight: 650; fill: #17212b; }
+    .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 14px; fill: #5b6675; }
+    .box { fill: #ffffff; stroke: #17212b; stroke-width: 1.5; rx: 6; }
+    .head { fill: #f7f8fa; stroke: none; }
+    .module { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 20px; font-weight: 650; fill: #17212b; }
+    .sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 13px; fill: #5b6675; }
+    .pin { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; fill: #17212b; }
+    .net { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; font-weight: 650; }
+    .wire { fill: none; stroke: #2b6f78; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .p5 { fill: none; stroke: #9a671f; stroke-width: 2.5; stroke-linecap: round; }
+    .gnd { fill: none; stroke: #34495e; stroke-width: 2.5; stroke-linecap: round; }
+    .flag5 { fill: #9a671f; }
+    .note { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 12px; fill: #5b6675; }
+    .legend { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 12px; fill: #5b6675; }
+  </style>
+
+  <rect class="bg" x="0" y="0" width="1400" height="820"/>
+  <text class="title" x="40" y="52">Single-Channel Fixture Relay</text>
+  <text class="subtitle" x="40" y="78">Paper Circuit · ESP32-C3 · 5 V relay · normally-open</text>
+
+  <!-- C3 -->
+  <g id="c3">
+    <rect class="box" x="80" y="170" width="270" height="390"/>
+    <rect class="head" x="80" y="170" width="270" height="40"/>
+    <text class="module" x="98" y="196">ESP32-C3</text>
+    <text class="sub" x="98" y="214">Wireless Module · 3.3 V logic</text>
+
+    <text class="pin" x="100" y="260">5V</text>
+    <text class="pin" x="100" y="300">GND</text>
+    <text class="pin" x="100" y="380">GPIO 3</text>
+    <text class="pin" x="100" y="430">GPIO 4</text>
+    <text class="pin" x="100" y="490">3V3</text>
+
+    <line class="p5" x1="350" y1="255" x2="380" y2="255"/>
+    <polygon class="flag5" points="380,255 370,250 370,260"/>
+    <text class="net" x="390" y="259" fill="#9a671f">+5 V</text>
+
+    <line class="gnd" x1="350" y1="295" x2="375" y2="295"/>
+    <line class="gnd" x1="375" y1="295" x2="375" y2="303"/>
+    <line class="gnd" x1="365" y1="303" x2="385" y2="303"/>
+    <line class="gnd" x1="369" y1="309" x2="381" y2="309"/>
+    <line class="gnd" x1="373" y1="315" x2="377" y2="315"/>
+    <text class="net" x="395" y="299" fill="#34495e">GND</text>
+
+    <text class="note" x="360" y="371">GPIO 3 → IN</text>
+    <text class="note" x="360" y="421">GPIO 4 unused</text>
+    <text class="sub" x="360" y="500">3V3 not used here</text>
+  </g>
+
+  <!-- Relay -->
+  <g id="relay">
+    <rect class="box" x="680" y="170" width="310" height="300"/>
+    <rect class="head" x="680" y="170" width="310" height="40"/>
+    <text class="module" x="698" y="196">1-Channel Relay</text>
+    <text class="sub" x="698" y="214">5 V coil · active HIGH · boots OFF</text>
+
+    <text class="pin" x="700" y="260">VCC</text>
+    <text class="pin" x="700" y="300">GND</text>
+    <text class="pin" x="700" y="380">IN</text>
+    <text class="pin" x="970" y="445" text-anchor="end">COM</text>
+    <text class="pin" x="970" y="490" text-anchor="end">NO</text>
+
+    <line class="p5" x1="680" y1="255" x2="650" y2="255"/>
+    <polygon class="flag5" points="650,255 660,250 660,260"/>
+    <text class="net" x="640" y="259" text-anchor="end" fill="#9a671f">+5 V</text>
+
+    <line class="gnd" x1="680" y1="295" x2="655" y2="295"/>
+    <line class="gnd" x1="655" y1="295" x2="655" y2="303"/>
+    <line class="gnd" x1="645" y1="303" x2="665" y2="303"/>
+    <line class="gnd" x1="649" y1="309" x2="661" y2="309"/>
+    <line class="gnd" x1="653" y1="315" x2="657" y2="315"/>
+    <text class="net" x="635" y="299" text-anchor="end" fill="#34495e">GND</text>
+
+    <line class="wire" x1="350" y1="380" x2="680" y2="380"/>
+
+    <line class="wire" x1="990" y1="440" x2="1080" y2="440"/>
+    <line class="wire" x1="990" y1="485" x2="1080" y2="485"/>
+  </g>
+
+  <!-- Fixture -->
+  <g id="fixture">
+    <rect class="box" x="1080" y="370" width="250" height="180"/>
+    <text class="module" x="1098" y="400" font-size="18">Light Fixture</text>
+    <text class="sub" x="1098" y="424">switched load</text>
+    <text class="note" x="1098" y="462">COM → supply live</text>
+    <text class="note" x="1098" y="482">NO → fixture live</text>
+    <text class="note" x="1098" y="514">neutral common</text>
+  </g>
+
+  <!-- Notes / legend -->
+  <g id="legend">
+    <text class="legend" x="80" y="620" font-weight="650">Wiring notes</text>
+    <text class="note" x="80" y="648">The single channel is driven from one `switch` state; GPIO 4 is unused in this build.</text>
+    <text class="note" x="80" y="670">The fixture is switched on COM + NO; relay boots OFF and reports state over ESP-NOW.</text>
+    <text class="note" x="80" y="692">Use a common ground between the 5 V supply, relay board and C3.</text>
+    <text class="note" x="80" y="714">Mains-side fixture wiring must be done by a qualified person; the prototype used a low-voltage test load.</text>
+
+    <text class="legend" x="80" y="760" font-weight="650">Legend</text>
+    <line class="p5" x1="80" y1="785" x2="110" y2="785"/>
+    <text class="legend" x="120" y="789">+5 V</text>
+    <line class="gnd" x1="190" y1="785" x2="220" y2="785"/>
+    <text class="legend" x="230" y="789">GND</text>
+    <line class="wire" x1="300" y1="785" x2="330" y2="785"/>
+    <text class="legend" x="340" y="789">signal</text>
+  </g>
+</svg>

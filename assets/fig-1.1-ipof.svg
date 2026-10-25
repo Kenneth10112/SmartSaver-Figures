@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 820" role="img" aria-labelledby="title desc">
+  <title id="title">IPOF Model</title>
+  <desc id="desc">Input-process-output-feedback model for SmartSaver.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 28px; font-weight: 650; fill: #17212b; }
+    .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 14px; fill: #5b6675; }
+    .panel { fill: #ffffff; stroke: #17212b; stroke-width: 1.5; rx: 6; }
+    .head { fill: #f7f8fa; }
+    .label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 19px; font-weight: 650; fill: #17212b; }
+    .item { fill: #ffffff; stroke: #d8dee6; stroke-width: 1; rx: 4; }
+    .text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 13px; fill: #17212b; }
+    .sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 11.5px; fill: #5b6675; }
+    .arrow { fill: none; stroke: #2b6f78; stroke-width: 2; marker-end: url(#arrow); }
+    .arrowd { fill: none; stroke: #5b6675; stroke-width: 2; stroke-dasharray: 5 4; marker-end: url(#arrowm); }
+    .tag { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 10.5px; fill: #5b6675; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0 0, 9 3.5, 0 7" fill="#2b6f78"/></marker>
+    <marker id="arrowm" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0 0, 9 3.5, 0 7" fill="#5b6675"/></marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1500" height="820"/>
+  <text class="title" x="40" y="52">IPOF Model</text>
+  <text class="subtitle" x="40" y="78">Input · Process · Output · Feedback — the SmartSaver control loop</text>
+
+  <!-- Input -->
+  <g id="input">
+    <rect class="panel" x="50" y="120" width="290" height="540"/>
+    <rect class="head" x="50" y="120" width="290" height="42"/>
+    <text class="label" x="70" y="147">Input</text>
+    <g>
+      <rect class="item" x="70" y="185" width="250" height="66"/>
+      <text class="text" x="84" y="209">Wired sensor readings</text>
+      <text class="sub" x="84" y="229">motion · climate · light · RTC</text>
+    </g>
+    <g>
+      <rect class="item" x="70" y="270" width="250" height="66"/>
+      <text class="text" x="84" y="294">Wireless state reports</text>
+      <text class="sub" x="84" y="314">relay and motion over ESP-NOW</text>
+    </g>
+    <g>
+      <rect class="item" x="70" y="355" width="250" height="66"/>
+      <text class="text" x="84" y="379">Automation rules</text>
+      <text class="sub" x="84" y="399">triggers · actions · priority</text>
+    </g>
+    <g>
+      <rect class="item" x="70" y="440" width="250" height="66"/>
+      <text class="text" x="84" y="464">Configuration</text>
+      <text class="sub" x="84" y="484">power · baseline · tariff</text>
+    </g>
+    <g>
+      <rect class="item" x="70" y="525" width="250" height="66"/>
+      <text class="text" x="84" y="549">Occupant intent</text>
+      <text class="sub" x="84" y="569">manual override · approval</text>
+    </g>
+  </g>
+
+  <!-- Process -->
+  <g id="process">
+    <rect class="panel" x="410" y="120" width="360" height="540"/>
+    <rect class="head" x="410" y="120" width="360" height="42"/>
+    <text class="label" x="430" y="147">Process</text>
+    <g>
+      <rect class="item" x="430" y="185" width="320" height="62"/>
+      <text class="text" x="444" y="209">Sample and stabilise</text>
+      <text class="sub" x="444" y="229">median + hysteresis filter</text>
+    </g>
+    <g>
+      <rect class="item" x="430" y="262" width="320" height="62"/>
+      <text class="text" x="444" y="286">Discover and pair</text>
+      <text class="sub" x="444" y="306">HELLO · approve · assign mod_id</text>
+    </g>
+    <g>
+      <rect class="item" x="430" y="339" width="320" height="62"/>
+      <text class="text" x="444" y="363">Evaluate rules</text>
+      <text class="sub" x="444" y="383">priority · override · one command</text>
+    </g>
+    <g>
+      <rect class="item" x="430" y="416" width="320" height="62"/>
+      <text class="text" x="444" y="440">Dispatch and publish</text>
+      <text class="sub" x="444" y="460">GPIO · ESP-NOW · HTTPS /ingest</text>
+    </g>
+    <g>
+      <rect class="item" x="430" y="493" width="320" height="62"/>
+      <text class="text" x="444" y="517">Compute and report</text>
+      <text class="sub" x="444" y="537">savings · health · payback</text>
+    </g>
+  </g>
+
+  <!-- Output -->
+  <g id="output">
+    <rect class="panel" x="850" y="120" width="280" height="540"/>
+    <rect class="head" x="850" y="120" width="280" height="42"/>
+    <text class="label" x="870" y="147">Output</text>
+    <g>
+      <rect class="item" x="870" y="185" width="240" height="86"/>
+      <text class="text" x="884" y="211">Automated control</text>
+      <text class="sub" x="884" y="232">relay · buzzer · fixture</text>
+      <text class="sub" x="884" y="250">the primary intervention</text>
+    </g>
+    <g>
+      <rect class="item" x="870" y="300" width="240" height="86"/>
+      <text class="text" x="884" y="326">Hub dashboard</text>
+      <text class="sub" x="884" y="347">live state · rules · pairing</text>
+      <text class="sub" x="884" y="365">settings · overrides</text>
+    </g>
+    <g>
+      <rect class="item" x="870" y="415" width="240" height="86"/>
+      <text class="text" x="884" y="441">Savings dashboard</text>
+      <text class="sub" x="884" y="462">kWh · currency · payback</text>
+      <text class="sub" x="884" y="480">per-part breakdown · trends</text>
+    </g>
+    <g>
+      <rect class="item" x="870" y="530" width="240" height="62"/>
+      <text class="text" x="884" y="554">Auditable event history</text>
+      <text class="sub" x="884" y="574">SQLite records every event</text>
+    </g>
+  </g>
+
+  <!-- Feedback -->
+  <g id="feedback">
+    <rect class="panel" x="1190" y="120" width="260" height="540"/>
+    <rect class="head" x="1190" y="120" width="260" height="42"/>
+    <text class="label" x="1210" y="147">Feedback</text>
+    <g>
+      <rect class="item" x="1210" y="185" width="220" height="86"/>
+      <text class="text" x="1224" y="211">Observed effect</text>
+      <text class="sub" x="1224" y="232">wireless relay state report</text>
+      <text class="sub" x="1224" y="250">not assumed from command</text>
+    </g>
+    <g>
+      <rect class="item" x="1210" y="300" width="220" height="86"/>
+      <text class="text" x="1224" y="326">Filter rejection</text>
+      <text class="sub" x="1224" y="347">transient samples suppressed</text>
+      <text class="sub" x="1224" y="365">before automation sees them</text>
+    </g>
+    <g>
+      <rect class="item" x="1210" y="415" width="220" height="86"/>
+      <text class="text" x="1224" y="441">Health and quality</text>
+      <text class="sub" x="1224" y="462">uptime · staleness · presence</text>
+      <text class="sub" x="1224" y="480">unconfigured actuators</text>
+    </g>
+    <g>
+      <rect class="item" x="1210" y="530" width="220" height="62"/>
+      <text class="text" x="1224" y="554">TAM + ISO 25010</text>
+      <text class="sub" x="1224" y="574">usability and quality review</text>
+    </g>
+  </g>
+
+  <!-- main arrows -->
+  <line class="arrow" x1="340" y1="390" x2="410" y2="390"/>
+  <text class="tag" x="348" y="382">data + intent</text>
+  <line class="arrow" x1="770" y1="390" x2="850" y2="390"/>
+  <text class="tag" x="778" y="382">commands + reports</text>
+  <line class="arrow" x1="1130" y1="390" x2="1190" y2="390"/>
+  <text class="tag" x="1134" y="382">results</text>
+
+  <!-- feedback loop -->
+  <path class="arrowd" d="M 1190 690 L 580 690 L 580 650"/>
+  <text class="tag" x="700" y="682">observed effect, health, evaluation</text>
+  <path class="arrowd" d="M 1190 720 L 560 720 L 560 610"/>
+  <text class="tag" x="700" y="742">refine thresholds, rules, dashboard</text>
+</svg>

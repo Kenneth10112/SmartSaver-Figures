@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 800" role="img" aria-labelledby="title desc">
+  <title id="title">Development and Testing Timeline</title>
+  <desc id="desc">Timeline of SmartSaver build and test milestones from requirements through final QA.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 28px; font-weight: 650; fill: #17212b; }
+    .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 14px; fill: #5b6675; }
+    .axis { stroke: #17212b; stroke-width: 2; }
+    .tick { stroke: #d8dee6; stroke-width: 1.2; }
+    .card { fill: #ffffff; stroke: #17212b; stroke-width: 1.4; rx: 5; }
+    .dev { stroke: #2f6b4f; }
+    .test { stroke: #2b6f78; }
+    .dot { fill: #17212b; }
+    .date { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 11px; font-weight: 650; fill: #17212b; }
+    .lane { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 12px; font-weight: 650; fill: #5b6675; letter-spacing: 0.08em; }
+    .label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 13px; font-weight: 650; fill: #17212b; }
+    .sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 10.5px; fill: #5b6675; }
+    .tag { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 9.5px; fill: #5b6675; }
+  </style>
+
+  <rect class="bg" x="0" y="0" width="1600" height="800"/>
+  <text class="title" x="40" y="52">Development and Testing Timeline</text>
+  <text class="subtitle" x="40" y="78">Build log milestones · requirements through final QA</text>
+
+  <text class="lane" x="40" y="160">DEVELOPMENT</text>
+  <text class="lane" x="40" y="650">TESTING</text>
+
+  <line class="axis" x1="80" y1="400" x2="1540" y2="400"/>
+
+  <!-- columns -->
+  <g id="c1">
+    <line class="tick" x1="190" y1="380" x2="190" y2="420"/>
+    <circle class="dot" cx="190" cy="400" r="5"/>
+    <text class="date" x="190" y="440" text-anchor="middle">10-06</text>
+    <rect class="card dev" x="90" y="210" width="200" height="120"/>
+    <text class="label" x="106" y="237">Spec + scaffold</text>
+    <text class="sub" x="106" y="259">requirements and folder</text>
+    <text class="sub" x="106" y="276">layout established</text>
+    <text class="tag" x="106" y="300">spec/ · contracts</text>
+    <rect class="card test" x="90" y="470" width="200" height="120"/>
+    <text class="label" x="106" y="497">Contract review</text>
+    <text class="sub" x="106" y="519">API routes, topics and</text>
+    <text class="sub" x="106" y="536">pin map checked</text>
+    <text class="tag" x="106" y="560">static review</text>
+  </g>
+
+  <g id="c2">
+    <line class="tick" x1="400" y1="380" x2="400" y2="420"/>
+    <circle class="dot" cx="400" cy="400" r="5"/>
+    <text class="date" x="400" y="440" text-anchor="middle">10-19</text>
+    <rect class="card dev" x="300" y="210" width="200" height="120"/>
+    <text class="label" x="316" y="237">Firmware build</text>
+    <text class="sub" x="316" y="259">Hub + C3 sketches</text>
+    <text class="sub" x="316" y="276">compile together</text>
+    <text class="tag" x="316" y="300">Arduino CLI</text>
+    <rect class="card test" x="300" y="470" width="200" height="120"/>
+    <text class="label" x="316" y="497">Compile checks</text>
+    <text class="sub" x="316" y="519">protocol.h diff and</text>
+    <text class="sub" x="316" y="536">flash-size guard</text>
+    <text class="tag" x="316" y="560">build verified</text>
+  </g>
+
+  <g id="c3">
+    <line class="tick" x1="610" y1="380" x2="610" y2="420"/>
+    <circle class="dot" cx="610" cy="400" r="5"/>
+    <text class="date" x="610" y="440" text-anchor="middle">10-20</text>
+    <rect class="card dev" x="510" y="210" width="200" height="120"/>
+    <text class="label" x="526" y="237">Pairing + RTC</text>
+    <text class="sub" x="526" y="259">HELLO · approve ·</text>
+    <text class="sub" x="526" y="276">assign mod_id</text>
+    <text class="tag" x="526" y="300">ESP-NOW</text>
+    <rect class="card test" x="510" y="470" width="200" height="120"/>
+    <text class="label" x="526" y="497">Bench pairing</text>
+    <text class="sub" x="526" y="519">relay polarity, RTC</text>
+    <text class="sub" x="526" y="536">timestamp round-trip</text>
+    <text class="tag" x="526" y="560">hardware test</text>
+  </g>
+
+  <g id="c4">
+    <line class="tick" x1="820" y1="380" x2="820" y2="420"/>
+    <circle class="dot" cx="820" cy="400" r="5"/>
+    <text class="date" x="820" y="440" text-anchor="middle">10-21</text>
+    <rect class="card dev" x="720" y="210" width="200" height="120"/>
+    <text class="label" x="736" y="237">History server</text>
+    <text class="sub" x="736" y="259">ingest, schema, savings,</text>
+    <text class="sub" x="736" y="276">health metrics</text>
+    <text class="tag" x="736" y="300">nginx + Certbot</text>
+    <rect class="card test" x="720" y="470" width="200" height="120"/>
+    <text class="label" x="736" y="497">API + schema tests</text>
+    <text class="sub" x="736" y="519">ingest, reset, savings</text>
+    <text class="sub" x="736" y="536">worked examples</text>
+    <text class="tag" x="736" y="560">server tests</text>
+  </g>
+
+  <g id="c5">
+    <line class="tick" x1="1030" y1="380" x2="1030" y2="420"/>
+    <circle class="dot" cx="1030" cy="400" r="5"/>
+    <text class="date" x="1030" y="440" text-anchor="middle">10-23</text>
+    <rect class="card dev" x="930" y="210" width="200" height="120"/>
+    <text class="label" x="946" y="237">Settings + rules</text>
+    <text class="sub" x="946" y="259">edit/delete, live values,</text>
+    <text class="sub" x="946" y="276">backup + restore</text>
+    <text class="tag" x="946" y="300">Hub UI</text>
+    <rect class="card test" x="930" y="470" width="200" height="120"/>
+    <text class="label" x="946" y="497">Backup / restore</text>
+    <text class="sub" x="946" y="519">round-trip, guarded</text>
+    <text class="sub" x="946" y="536">reset paths</text>
+    <text class="tag" x="946" y="560">UI tests</text>
+  </g>
+
+  <g id="c6">
+    <line class="tick" x1="1240" y1="380" x2="1240" y2="420"/>
+    <circle class="dot" cx="1240" cy="400" r="5"/>
+    <text class="date" x="1240" y="440" text-anchor="middle">10-24</text>
+    <rect class="card dev" x="1140" y="210" width="200" height="120"/>
+    <text class="label" x="1156" y="237">Motion + buzzer</text>
+    <text class="sub" x="1156" y="259">final wiring, capability</text>
+    <text class="sub" x="1156" y="276">selection, docs</text>
+    <text class="tag" x="1156" y="300">hardware</text>
+    <rect class="card test" x="1140" y="470" width="200" height="120"/>
+    <text class="label" x="1156" y="497">Hardware verify</text>
+    <text class="sub" x="1156" y="519">motion edge, buzzer</text>
+    <text class="sub" x="1156" y="536">active-high behavior</text>
+    <text class="tag" x="1156" y="560">bench verified</text>
+  </g>
+
+  <g id="c7">
+    <line class="tick" x1="1450" y1="380" x2="1450" y2="420"/>
+    <circle class="dot" cx="1450" cy="400" r="5"/>
+    <text class="date" x="1450" y="440" text-anchor="middle">10-25</text>
+    <rect class="card dev" x="1350" y="210" width="200" height="120"/>
+    <text class="label" x="1366" y="237">Figures + QA</text>
+    <text class="sub" x="1366" y="259">architecture, DFDs, ERD,</text>
+    <text class="sub" x="1366" y="276">wiring, VTOC, timeline</text>
+    <text class="tag" x="1366" y="300">documentation</text>
+    <rect class="card test" x="1350" y="470" width="200" height="120"/>
+    <text class="label" x="1366" y="497">Artifact QA</text>
+    <text class="sub" x="1366" y="519">XML valid, render</text>
+    <text class="sub" x="1366" y="536">checked, links live</text>
+    <text class="tag" x="1366" y="560">final review</text>
+  </g>
+
+  <text class="tag" x="80" y="740">Dates are build-log milestones, not a complete calendar; testing continued within each development cycle.</text>
+</svg>

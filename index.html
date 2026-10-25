@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SmartSaver — Diagram Index</title>
+<meta name="description" content="Static index of SmartSaver system diagrams, with full-quality SVG, PNG and interactive HTML downloads.">
+<style>
+  :root {
+    --paper: #ffffff;
+    --ink: #17212b;
+    --muted: #5b6675;
+    --line: #d8dee6;
+    --soft: #f7f8fa;
+    --green: #2f6b4f;
+    --teal: #2b6f78;
+    --violet: #6b4f9a;
+    --amber: #9a671f;
+    --red: #a33a2a;
+    --radius: 10px;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: inherit; }
+  .wrap { width: min(1240px, calc(100% - 48px)); margin: 0 auto; }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin: 0 0 14px;
+  }
+  .hero { padding: 64px 0 40px; border-bottom: 1px solid var(--line); }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr);
+    gap: 56px;
+    align-items: end;
+  }
+  .hero-grid > * { min-width: 0; }
+  h1 {
+    margin: 0;
+    font-size: clamp(36px, 5.4vw, 66px);
+    line-height: .98;
+    letter-spacing: -.045em;
+    font-weight: 680;
+  }
+  h1 span { color: var(--green); }
+  .lede {
+    margin: 22px 0 0;
+    max-width: 650px;
+    color: var(--muted);
+    font-size: 16px;
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 38px;
+    padding: 8px 14px;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 12.5px;
+    font-weight: 620;
+    text-decoration: none;
+    cursor: pointer;
+    white-space: normal;
+    transition: border-color .15s ease, color .15s ease, background .15s ease;
+  }
+  .btn:hover { border-color: var(--ink); }
+  .btn.primary { background: var(--ink); border-color: var(--ink); color: #fff; }
+  .btn.primary:hover { background: var(--green); border-color: var(--green); }
+  .btn.green { border-color: var(--green); color: var(--green); }
+  .btn.green:hover { background: var(--green); color: #fff; }
+  .btn.small { min-height: 32px; padding: 6px 10px; font-size: 11.5px; }
+  .stat-panel { border-left: 1px solid var(--line); padding-left: 28px; min-width: 0; }
+  .stat { display: flex; justify-content: space-between; gap: 18px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .stat:last-child { border-bottom: 0; }
+  .stat b { font-size: 22px; line-height: 1; font-weight: 680; }
+  .stat span { color: var(--muted); font-size: 12px; text-align: right; overflow-wrap: anywhere; }
+  .stat-panel p { color: var(--muted); font-size: 12px; margin: 16px 0 0; }
+
+  .toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: rgba(255,255,255,.96);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(6px);
+  }
+  .toolbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 18px; min-height: 52px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .04em;
+    text-decoration: none;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 5px 9px;
+    background: var(--paper);
+  }
+  .chip:hover { color: var(--ink); border-color: var(--ink); }
+  .zip-link { font-size: 11.5px; color: var(--green); text-decoration: none; white-space: nowrap; }
+  .zip-link:hover { text-decoration: underline; }
+
+  section { padding: 48px 0 6px; }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 24px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 22px;
+  }
+  .section-head h2 { margin: 0; font-size: 20px; letter-spacing: -.02em; font-weight: 680; }
+  .section-head p { margin: 0; color: var(--muted); font-size: 12px; }
+
+  .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+  .card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--paper);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    scroll-margin-top: 76px;
+  }
+  .thumb {
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+    padding: 14px;
+    height: 228px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .thumb img { max-width: 100%; max-height: 200px; width: auto; height: auto; display: block; }
+  .body { padding: 14px 15px 15px; display: flex; flex-direction: column; flex: 1; }
+  .meta { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .num { font-family: var(--mono); font-size: 10px; font-weight: 700; color: var(--green); border: 1px solid #cfe0d6; background: #f4f8f5; border-radius: 4px; padding: 2px 5px; }
+  .type { font-family: var(--mono); font-size: 9.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .card h3 { margin: 0 0 6px; font-size: 15px; line-height: 1.2; letter-spacing: -.01em; font-weight: 650; }
+  .card p { margin: 0 0 14px; color: var(--muted); font-size: 11.8px; line-height: 1.45; }
+  .actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+  .actions .btn { min-height: 30px; padding: 5px 9px; font-size: 10.8px; border-radius: 5px; }
+  .quality { font-family: var(--mono); font-size: 9px; color: #7a8492; margin-top: 10px; }
+
+  .how {
+    margin: 54px 0 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 24px 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+  .how h3 { margin: 0 0 5px; font-size: 13px; font-weight: 650; }
+  .how p { margin: 0; color: var(--muted); font-size: 11.8px; }
+  footer { padding: 28px 0 42px; color: var(--muted); font-size: 11.5px; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  footer code { font-family: var(--mono); font-size: 10.5px; }
+  .top { text-decoration: none; color: var(--green); font-family: var(--mono); font-size: 10.5px; }
+
+  @media (max-width: 980px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+    .stat-panel { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 12px; }
+    .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .how { grid-template-columns: 1fr; gap: 16px; }
+    .toolbar-inner { align-items: flex-start; padding: 10px 0; flex-direction: column; gap: 8px; }
+  }
+  @media (max-width: 620px) {
+    .wrap { width: calc(100% - 28px); }
+    .hero { padding-top: 38px; }
+    .grid { grid-template-columns: 1fr; }
+    .thumb { height: 205px; }
+    .section-head { flex-direction: column; gap: 4px; }
+  }
+  @media print {
+    .toolbar, .hero-actions, .zip-link, .top { display: none; }
+    .card { break-inside: avoid; }
+  }
+</style>
+</head>
+<body id="top">
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">SmartSaver · Diagram Index</p>
+      <h1>System diagrams,<br><span>ready to hand off.</span></h1>
+      <p class="lede">
+        Every SmartSaver figure in one static page. Download the vector source for edits,
+        a full-resolution PNG for slides, or the interactive HTML for the Archify figures.
+      </p>
+      <div class="hero-actions">
+        <a class="btn primary" href="smartsaver-diagrams.zip" download>Download all · ZIP</a>
+        <a class="btn green" href="#concept">Browse the figures</a>
+        <a class="btn" href="#hardware">Hardware sheets</a>
+      </div>
+    </div>
+    <aside class="stat-panel" aria-label="Figure index summary">
+      <div class="stat"><b>17</b><span>figures in the index</span></div>
+      <div class="stat"><b>12</b><span>hand-authored SVG drawings</span></div>
+      <div class="stat"><b>5</b><span>interactive Archify figures</span></div>
+      <p>Static HTML, CSS and assets. No build step, no external fonts, no JavaScript dependencies.</p>
+    </aside>
+  </div>
+</header>
+
+<nav class="toolbar" aria-label="Figure sections">
+  <div class="wrap toolbar-inner">
+    <div class="chips">
+      <a class="chip" href="#concept">Concept &amp; data</a>
+      <a class="chip" href="#hardware">Hardware</a>
+      <a class="chip" href="#interactive">Interactive</a>
+    </div>
+    <a class="zip-link" href="smartsaver-diagrams.zip" download>17 figures · full ZIP ↓</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section id="concept">
+    <div class="section-head">
+      <h2>Concept &amp; data</h2>
+      <p>IPOF, proposed system, DFDs, ERD, VTOC and the build timeline</p>
+    </div>
+    <div class="grid">
+
+      <article class="card" id="ipof">
+        <div class="thumb"><img src="assets/fig-1.1-ipof.png" alt="IPOF model: input, process, output and feedback" loading="lazy"></div>
+        <div class="body">
+          <div class="meta"><span class="num">1.1</span><span class="type">Concept</span></div>
+          <h3>IPOF model</h3>
+          <p>Inputs, process, outputs and feedback tied to the paper’s conceptual framework.</p>
+          <div class="actions">
+            <a class="btn primary" href="assets/fig-1.1-ipof.svg" download>Download SVG</a>
+            <a class="btn" href="assets/fig-1.1-ipof.png" download>PNG · 1500×820</a>
+          </div>
+          <div class="quality">Vector source · prints at any size</div>
+        </div>
+      </article>
+
+      <article class="card" id="proposed">
+        <div class="thumb"><img src="assets/fig-2.3-proposed-system.png" alt="Proposed SmartSaver system overview" loading="lazy"></div>
+        <div class="body">
+          <div class="meta"><span class="num">2.3</span><span class="type">System</span></div>
+          <h3>Proposed system</h3>
+          <p>Local-first Hub, wired sensors, wireless modules, optional History Server and savings dashboard.</p>
+          <div class="actions">
+            <a class="btn primary" href="assets/fig-2.3-proposed-system.svg" download>Download SVG</a>
+            <a class="btn" href="assets/fig-2.3-proposed-system.png" download>PNG · 1500×850</a>
+          </div>
+          <div class="quality">Vector source · prints at any size</div>
+        </div>
+      </article>
+
+      <article class="card" id="dfd0">
+        <div class="thumb"><img src="assets/fig-2.5-dfd-level0.png" alt="DFD level 0 context diagram" loading="lazy"></div>
+        <div class="body">
+          <div class="meta"><span class="num">2.5</span><span class="type">DFD · Level 0</span></div>
+          <h3>DFD level 0</h3>
+          <p>One SmartSaver process with the occupant, wired sensors, wireless modules and History Server.</p>
+          <div class="actions">
+            <a class="btn primary" href="assets/fig-2.5-dfd-level0.svg" download>Download SVG</a>
+            <a class="btn" href="assets/fig-2.5-dfd-level0.png" download>PNG · 1400×800</a>
+          </div>
+          <div class="quality">Orthogonal routing · no diagonals</div>
+        </div>
+      </article>
+
+      <article class="card" id="dfd1">
+        <div class="thumb"><img src="assets/fig-2.6-dfd-level1.png" alt="DFD level 1: pairing, acquisition, rules, dispatch, publish and store" loading="lazy"></div>
+        <div class="body">
+          <div class="meta"><span class="num">2.6</span><span class="type">DFD · Level 1</span></div>
+          <h3>DFD level 1</h3>
+          <p>Pairing, filtering, rule evaluation, dispatch, publish queue and store/compute, with D1–D3.</p>
+          <div class="actions">
+            <a class="btn primary" href="assets/fig-2.6-dfd-level1.svg" download>Download SVG</a>
+            <a class="btn" href="assets/fig-2.6-dfd-level1.png" download>PNG · 1600×1000</a>
+          </div>
+          <div class="quality">Data stores D1 · D2 · D3</div>
+        </div>
+      </article>
+
+      <article class="card" id="erd">
+        <div class="thumb"><img src="assets/fig-2.7-erd.png" alt="SQLite entity relationship diagram" loading="lazy"></div>
+        <div class="body">
+          <div class="meta"><span class="num">2.7</span><span class="type">Database</span></div>
+          <h3>SQLite ERD</h3>
+          <p>Actual History Server tables and fields; <code>part_id</code> is a logical join, not a declared FK.</p>
+          <div class="actions">
+            <a class="btn primary" href="assets/fig-2.7-erd.svg" download>Download SVG</a>
+            <a class="btn" href="assets/fig-2.7-erd.png" download>PNG · 1600×1050</a>
+          </div>
+          <div class="quality">Seven tables · schema-accurate</div>
+        </div>
+      </article>
+
+      <article class="card" id="vtoc">
+        <div class="thumb"><img src="assets/fig-2.8-vtoc.png" alt="Visual table of contents for the Hub and History Server interfaces" loading="lazy"></div>
+        <div class="body">
+          <div class="meta"><span class="num">2.8</span><span class="type">Interface map</span></div>
+          <h3>Visual table of contents</h3>
+          <p>Ten interfaces: setup, dashboard, rules, checklist, pairing, history, savings, config, quality and reset.</p>
+          <div class="actions">
+            <a class="btn primary" href="assets/fig-2.8-vtoc.svg" download>Download SVG</a>
+            <a class="btn" href="assets/fig-2.8-vtoc.png" download>PNG · 1500×900</a>
+          </div>
+          <div class="quality">Wireframe cards, not screenshots</div>
+        </div>
+      </article>
+
+      <article class="card" id="timeline">
+        <div class="thumb"><img src="assets/fig-2.9b-development-timeline.png" alt="Development and testing timeline" loading="lazy"></div>
+        <div class="body">
+          <div class="meta"><span class="num">2.9b</span><span class="type">Timeline</span></div>
+          <h3>Development + testing timeline</h3>
+          <p>Build-log milestones from the 06 October spec through the 25 October figure QA pass.</p>
+          <div class="actions">
+            <a class="btn primary" href="assets/fig-2.9b-development-timeline.svg" download>Download SVG</a>
+            <a class="btn" href="assets/fig-2.9b-development-timeline.png" download>PNG · 1600×800</a>
+          </div>
+          <div class="quality">Two lanes: development and testing</div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="hardware">
+    <div class="section-head">
+      <h2>Hardware sheets</h2>
+      <p>Pin-level wiring, AC distribution and the three module variants</p>
+    </div>
+    <div class="grid">
+
+      <article class="card" id="hub-wiring">
+        <div class="thumb"><img src="assets/fig-2.17-hub-wiring.png" alt="Hub wiring with PSU, buck converter, sensors and buzzer" loading="lazy"></div>
+        <div class="body">
+          <div class="meta"><span class="num">2.17</span><span class="type">Wiring</span></div>
+          <h3>Hub wiring</h3>
+          <p>ESP32, 12 V PSU → 5 V buck → microUSB, shared 3.3 V rail, RTC, DHT11, light sensor and buzzer.</p>
+          <div class="actions">
+            <a class="btn primary" href="assets/fig-2.17-hub-wiring.svg" download>Download SVG</a>
+            <a class="btn" href="assets/fig-2.17-hub-wiring.png" download>PNG · 1600×1000</a>
+          </div>
+          <div class="quality">Functional pin map, not header order</div>
+        </div>
+      </article>
+
+      <article class="card" id="dual-relay">
+        <div class="thumb"><img src="assets/fig-2.18-module-relay-dual.png" alt="Dual-channel relay module wiring" loading="lazy"></div>
+        <div class="body">
+          <div class="meta"><span class="num">2.18</span><span class="type">Module</span></div>
+          <h3>Dual-channel relay</h3>
+          <p>C3 IN1 on GPIO 3, IN2 on GPIO 4, both channels driven together, normally-open contacts.</p>
+          <div class="actions">
+            <a class="btn primary" href="assets/fig-2.18-module-relay-dual.svg" download>Download SVG</a>
+            <a class="btn" href="assets/fig-2.18-module-relay-dual.png" download>PNG · 1400×820</a>
+          </div>
+          <div class="quality">Two loads · NO contacts</div>
+        </div>
+      </article>
+
+      <article class="card" id="ac-distribution">
+        <div class="thumb"><img src="assets/fig-2.18b-relay-ac-distribution.png" alt="Relay AC distribution with splitter, outlets and charger" loading="lazy"></div>
+        <div class="body">
+          <div class="meta"><span class="num">2.18b</span><span class="type">AC distribution</span></div>
+          <h3>Relay AC distribution</h3>
+          <p>AC splitter → CH1 live / CH2 neutral → six parallel outlets; charger branch → USB-C → C3. PE bonded, not switched.</p>
+          <div class="actions">
+            <a class="btn primary" href="assets/fig-2.18b-relay-ac-distribution.svg" download>Download SVG</a>
+            <a class="btn" href="assets/fig-2.18b-relay-ac-distribution.png" download>PNG · 1600×900</a>
+          </div>
+          <div class="quality">Mains safety notes included</div>
+        </div>
+      </article>
+
+      <article class="card" id="single-relay">
+        <div class="thumb"><img src="assets/fig-2.19-module-relay-single.png" alt="Single-channel light-fixture relay wiring" loading="lazy"></div>
+        <div class="body">
+          <div class="meta"><span class="num">2.19</span><span class="type">Module</span></div>
+          <h3>Single-channel fixture relay</h3>
+          <p>Fixture relay on GPIO 3, GPIO 4 unused, COM/NO in the fixture lead, common ground.</p>
+          <div class="actions">
+            <a class="btn primary" href="assets/fig-2.19-module-relay-single.svg" download>Download SVG</a>
+            <a class="btn" href="assets/fig-2.19-module-relay-single.png" download>PNG · 1400×820</a>
+          </div>
+          <div class="quality">GPIO 4 explicitly unused</div>
+        </div>
+      </article>
+
+      <article class="card" id="motion">
+        <div class="thumb"><img src="assets/fig-2.20-module-motion.png" alt="Wireless motion module wiring" loading="lazy"></div>
+        <div class="body">
+          <div class="meta"><span class="num">2.20</span><span class="type">Module</span></div>
+          <h3>Wireless motion module</h3>
+          <p>RCWL-0516 OUT → C3 GPIO 3, 5 V supply, common ground; transmit-only, no command parser.</p>
+          <div class="actions">
+            <a class="btn primary" href="assets/fig-2.20-module-motion.svg" download>Download SVG</a>
+            <a class="btn" href="assets/fig-2.20-module-motion.png" download>PNG · 1200×700</a>
+          </div>
+          <div class="quality">Transmit-only module</div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="interactive">
+    <div class="section-head">
+      <h2>Interactive figures</h2>
+      <p>Archify artifacts — open in the browser or download the standalone HTML</p>
+    </div>
+    <div class="grid">
+
+      <article class="card" id="architecture">
+        <div class="thumb"><img src="assets/system-architecture.png" alt="SmartSaver system architecture" loading="lazy"></div>
+        <div class="body">
+          <div class="meta"><span class="num">2.21</span><span class="type">Archify · Architecture</span></div>
+          <h3>System architecture</h3>
+          <p>Hub, wired parts, C3 modules, Wi-Fi/HTTPS, History Server and browser clients; one-way telemetry.</p>
+          <div class="actions">
+            <a class="btn primary" href="assets/system-architecture.html" target="_blank" rel="noopener">Open interactive</a>
+            <a class="btn" href="assets/system-architecture.html" download>Download HTML</a>
+            <a class="btn" href="assets/system-architecture.png" download>PNG</a>
+          </div>
+          <div class="quality">Also has a paper edition: <a href="assets/system-architecture-paper.html" target="_blank" rel="noopener">open print HTML</a></div>
+        </div>
+      </article>
+
+      <article class="card" id="data-flow">
+        <div class="thumb"><img src="assets/data-flow.png" alt="SmartSaver data flow" loading="lazy"></div>
+        <div class="body">
+          <div class="meta"><span class="num">2.22</span><span class="type">Archify · Data flow</span></div>
+          <h3>Data flow</h3>
+          <p>Sense → stabilise → decide → record &amp; report, including the readings and events paths.</p>
+          <div class="actions">
+            <a class="btn primary" href="assets/data-flow.html" target="_blank" rel="noopener">Open interactive</a>
+            <a class="btn" href="assets/data-flow.html" download>Download HTML</a>
+            <a class="btn" href="assets/data-flow.png" download>PNG</a>
+          </div>
+          <div class="quality">Paper edition: <a href="assets/data-flow-paper.html" target="_blank" rel="noopener">open print HTML</a></div>
+        </div>
+      </article>
+
+      <article class="card" id="pairing">
+        <div class="thumb"><img src="assets/pairing-sequence.png" alt="SmartSaver pairing sequence" loading="lazy"></div>
+        <div class="body">
+          <div class="meta"><span class="num">2.23</span><span class="type">Archify · Sequence</span></div>
+          <h3>Pairing sequence</h3>
+          <p>HELLO, candidate, approval, <code>mod_id</code> assignment, state report and dashboard confirmation.</p>
+          <div class="actions">
+            <a class="btn primary" href="assets/pairing-sequence.html" target="_blank" rel="noopener">Open interactive</a>
+            <a class="btn" href="assets/pairing-sequence.html" download>Download HTML</a>
+            <a class="btn" href="assets/pairing-sequence.png" download>PNG</a>
+          </div>
+          <div class="quality">Paper edition: <a href="assets/pairing-sequence-paper.html" target="_blank" rel="noopener">open print HTML</a></div>
+        </div>
+      </article>
+
+      <article class="card" id="rule-workflow">
+        <div class="thumb"><img src="assets/rule-workflow.png" alt="SmartSaver rule workflow" loading="lazy"></div>
+        <div class="body">
+          <div class="meta"><span class="num">2.24</span><span class="type">Archify · Workflow</span></div>
+          <h3>Rule workflow</h3>
+          <p>Trigger, override and priority resolution, dispatch, state report and event posting.</p>
+          <div class="actions">
+            <a class="btn primary" href="assets/rule-workflow.html" target="_blank" rel="noopener">Open interactive</a>
+            <a class="btn" href="assets/rule-workflow.html" download>Download HTML</a>
+            <a class="btn" href="assets/rule-workflow.png" download>PNG</a>
+          </div>
+          <div class="quality">Paper edition: <a href="assets/rule-workflow-paper.html" target="_blank" rel="noopener">open print HTML</a></div>
+        </div>
+      </article>
+
+      <article class="card" id="lifecycle">
+        <div class="thumb"><img src="assets/deployment-lifecycle.png" alt="SmartSaver deployment lifecycle" loading="lazy"></div>
+        <div class="body">
+          <div class="meta"><span class="num">2.25</span><span class="type">Archify · Lifecycle</span></div>
+          <h3>Deployment lifecycle</h3>
+          <p>Setup AP → Wi-Fi → pairing → normal operation → server offline → retry → reporting restored.</p>
+          <div class="actions">
+            <a class="btn primary" href="assets/deployment-lifecycle.html" target="_blank" rel="noopener">Open interactive</a>
+            <a class="btn" href="assets/deployment-lifecycle.html" download>Download HTML</a>
+            <a class="btn" href="assets/deployment-lifecycle.png" download>PNG</a>
+          </div>
+          <div class="quality">Paper edition: <a href="assets/deployment-lifecycle-paper.html" target="_blank" rel="noopener">open print HTML</a></div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <div class="how">
+    <div>
+      <h3>Vector first</h3>
+      <p>Use the SVG for the paper, a poster, or a last-minute edit. It stays sharp at any size.</p>
+    </div>
+    <div>
+      <h3>PNG for slides</h3>
+      <p>Each PNG is the rendered full canvas, not a thumbnail. Drop it straight into a deck.</p>
+    </div>
+    <div>
+      <h3>HTML for interaction</h3>
+      <p>The Archify files are standalone; the print editions remove the viewer chrome.</p>
+    </div>
+  </div>
+
+</main>
+
+<footer class="wrap">
+  <span>SmartSaver · static diagram index · <code>site/index.html</code></span>
+  <span><a class="top" href="#top">Back to top ↑</a></span>
+</footer>
+
+</body>
+</html>

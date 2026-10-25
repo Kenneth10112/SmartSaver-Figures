@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 850" role="img" aria-labelledby="title desc">
+  <title id="title">Proposed SmartSaver System</title>
+  <desc id="desc">High-level proposed system: occupant, Hub dashboard, ESP32 hub, wired sensors, wireless modules, actuators, and optional History Server.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 28px; font-weight: 650; fill: #17212b; }
+    .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 14px; fill: #5b6675; }
+    .box { fill: #ffffff; stroke: #17212b; stroke-width: 1.5; rx: 6; }
+    .head { fill: #f7f8fa; }
+    .label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 17px; font-weight: 650; fill: #17212b; }
+    .sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 11.5px; fill: #5b6675; }
+    .arrow { fill: none; stroke: #2b6f78; stroke-width: 2; marker-end: url(#arrow); }
+    .arrowd { fill: none; stroke: #5b6675; stroke-width: 2; stroke-dasharray: 5 4; marker-end: url(#arrowm); }
+    .tag { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 10.5px; fill: #5b6675; }
+    .region { fill: none; stroke: #c9d2dc; stroke-width: 1; stroke-dasharray: 7 5; }
+    .rlabel { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 11px; font-weight: 650; fill: #5b6675; letter-spacing: 0.06em; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0 0, 9 3.5, 0 7" fill="#2b6f78"/></marker>
+    <marker id="arrowm" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0 0, 9 3.5, 0 7" fill="#5b6675"/></marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1500" height="850"/>
+  <text class="title" x="40" y="52">Proposed SmartSaver System</text>
+  <text class="subtitle" x="40" y="78">Local-first control, optional cloud reporting, no per-unit module configuration</text>
+
+  <rect class="region" x="40" y="110" width="900" height="690"/>
+  <text class="rlabel" x="58" y="134">HOME LAN</text>
+  <rect class="region" x="980" y="110" width="480" height="300"/>
+  <text class="rlabel" x="998" y="134">OPTIONAL HISTORY SERVER</text>
+
+  <!-- Occupant / dashboard -->
+  <g id="occupant">
+    <rect class="box" x="70" y="160" width="230" height="100"/>
+    <rect class="head" x="70" y="160" width="230" height="32"/>
+    <text class="label" x="88" y="183">Occupant</text>
+    <text class="sub" x="88" y="207">phone or laptop browser</text>
+    <text class="sub" x="88" y="225">rules · pairing · override</text>
+  </g>
+
+  <g id="dashboard">
+    <rect class="box" x="370" y="160" width="240" height="100"/>
+    <rect class="head" x="370" y="160" width="240" height="32"/>
+    <text class="label" x="388" y="183">Hub Dashboard</text>
+    <text class="sub" x="388" y="207">local web app · smartsaver.local</text>
+    <text class="sub" x="388" y="225">live state · rules · pairing</text>
+  </g>
+
+  <line class="arrow" x1="300" y1="210" x2="370" y2="210"/>
+  <text class="tag" x="310" y="202">HTTPS</text>
+  <line class="arrow" x1="610" y1="230" x2="700" y2="330"/>
+  <text class="tag" x="620" y="286">HTTP + WebSocket</text>
+
+  <!-- Hub -->
+  <g id="hub">
+    <rect class="box" x="520" y="330" width="310" height="200"/>
+    <rect class="head" x="520" y="330" width="310" height="34"/>
+    <text class="label" x="538" y="354">ESP32 Hub</text>
+    <text class="sub" x="538" y="378">rules · filter · ESP-NOW · posting queue</text>
+    <text class="sub" x="538" y="404">authoritative RTC · local override</text>
+    <text class="sub" x="538" y="430">boots safe; local control survives server loss</text>
+  </g>
+
+  <!-- Sensors -->
+  <g id="wired">
+    <rect class="box" x="70" y="360" width="250" height="140"/>
+    <rect class="head" x="70" y="360" width="250" height="32"/>
+    <text class="label" x="88" y="383">Wired Sensors</text>
+    <text class="sub" x="88" y="407">RCWL-0516 motion (GPIO 27)</text>
+    <text class="sub" x="88" y="427">DHT11 climate (GPIO 4)</text>
+    <text class="sub" x="88" y="447">LM393 light (GPIO 34) · DS3231 RTC</text>
+  </g>
+  <line class="arrow" x1="320" y1="430" x2="520" y2="430"/>
+  <text class="tag" x="340" y="422">GPIO / I2C</text>
+
+  <g id="modules">
+    <rect class="box" x="70" y="540" width="250" height="140"/>
+    <rect class="head" x="70" y="540" width="250" height="32"/>
+    <text class="label" x="88" y="563">Wireless Modules</text>
+    <text class="sub" x="88" y="587">ESP32-C3 · one capability each</text>
+    <text class="sub" x="88" y="607">relay switch or motion sensor</text>
+    <text class="sub" x="88" y="627">HELLO · pair · assign mod_id</text>
+  </g>
+  <path class="arrow" d="M 320 610 L 400 610 L 400 500 L 520 500"/>
+  <text class="tag" x="330" y="602">ESP-NOW</text>
+
+  <!-- Actuators -->
+  <g id="actuators">
+    <rect class="box" x="520" y="610" width="310" height="120"/>
+    <rect class="head" x="520" y="610" width="310" height="32"/>
+    <text class="label" x="538" y="633">Actuation</text>
+    <text class="sub" x="538" y="657">C3 relay · fixture / outlet row</text>
+    <text class="sub" x="538" y="677">active buzzer · GPIO 26</text>
+    <text class="sub" x="538" y="697">feedback state from wireless relay</text>
+  </g>
+  <line class="arrow" x1="675" y1="530" x2="675" y2="610"/>
+  <text class="tag" x="685" y="570">GPIO / ESP-NOW</text>
+
+  <!-- History -->
+  <g id="history">
+    <rect class="box" x="1030" y="180" width="300" height="170"/>
+    <rect class="head" x="1030" y="180" width="300" height="32"/>
+    <text class="label" x="1048" y="203">History Server</text>
+    <text class="sub" x="1048" y="227">Python stdlib · SQLite · HTTPS</text>
+    <text class="sub" x="1048" y="247">readings · actuator events · topology</text>
+    <text class="sub" x="1048" y="267">savings · health · quality · payback</text>
+    <text class="sub" x="1048" y="287">optional and one-way for the Hub</text>
+  </g>
+
+  <g id="savings">
+    <rect class="box" x="1030" y="390" width="300" height="105"/>
+    <rect class="head" x="1030" y="390" width="300" height="32"/>
+    <text class="label" x="1048" y="413">Savings Dashboard</text>
+    <text class="sub" x="1048" y="437">summary · per-part · payback</text>
+    <text class="sub" x="1048" y="457">health · data quality · trends</text>
+  </g>
+
+  <line class="arrow" x1="830" y1="340" x2="1030" y2="340"/>
+  <text class="tag" x="850" y="332">HTTPS POST /ingest</text>
+  <line class="arrowd" x1="1180" y1="350" x2="1180" y2="390"/>
+  <text class="tag" x="1190" y="374">queries</text>
+
+  <!-- notes -->
+  <text class="tag" x="70" y="735">One Hub, one optional server, and a module per controlled point.</text>
+  <text class="tag" x="70" y="758">The relay is placed in line with the load; the module is discovered and assigned, not preconfigured.</text>
+  <text class="tag" x="70" y="781">No cloud command path: the History Server only receives events.</text>
+</svg>

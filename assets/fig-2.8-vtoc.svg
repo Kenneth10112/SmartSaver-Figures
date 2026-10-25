@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 900" role="img" aria-labelledby="title desc">
+  <title id="title">Visual Table of Contents</title>
+  <desc id="desc">Interface map for the Hub dashboard and History Server.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 28px; font-weight: 650; fill: #17212b; }
+    .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 14px; fill: #5b6675; }
+    .card { fill: #ffffff; stroke: #17212b; stroke-width: 1.5; rx: 5; }
+    .head { fill: #f7f8fa; }
+    .label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 15px; font-weight: 650; fill: #17212b; }
+    .sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 10.5px; fill: #5b6675; }
+    .line { stroke: #d8dee6; stroke-width: 1.2; fill: none; }
+    .mini { stroke: #c9d2dc; stroke-width: 1.2; fill: none; }
+    .accent { stroke: #2b6f78; stroke-width: 2; fill: none; }
+    .dot { fill: #2f6b4f; }
+    .tag { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 9.5px; fill: #5b6675; }
+  </style>
+
+  <rect class="bg" x="0" y="0" width="1500" height="900"/>
+  <text class="title" x="40" y="52">Visual Table of Contents</text>
+  <text class="subtitle" x="40" y="78">The two surfaces of SmartSaver: the Hub dashboard and the History Server</text>
+
+  <!-- Row 1 -->
+  <!-- setup -->
+  <g>
+    <rect class="card" x="40" y="120" width="270" height="300"/>
+    <rect class="head" x="40" y="120" width="270" height="44"/>
+    <text class="label" x="56" y="147">1 · Hub Setup</text>
+    <text class="sub" x="56" y="178">first boot · Wi-Fi · API key</text>
+    <rect class="mini" x="58" y="200" width="234" height="28"/>
+    <text class="tag" x="68" y="219">SSID</text>
+    <rect class="mini" x="58" y="238" width="234" height="28"/>
+    <text class="tag" x="68" y="257">Password</text>
+    <rect class="accent" x="58" y="282" width="90" height="24" rx="4"/>
+    <text class="tag" x="72" y="298">Save</text>
+    <text class="sub" x="58" y="340">Local captive setup page.</text>
+    <text class="sub" x="58" y="358">No account required.</text>
+  </g>
+
+  <!-- dashboard -->
+  <g>
+    <rect class="card" x="330" y="120" width="270" height="300"/>
+    <rect class="head" x="330" y="120" width="270" height="44"/>
+    <text class="label" x="346" y="147">2 · Hub Dashboard</text>
+    <text class="sub" x="346" y="178">live room state · overrides</text>
+    <rect class="mini" x="348" y="200" width="110" height="64"/>
+    <rect class="mini" x="468" y="200" width="110" height="64"/>
+    <rect class="mini" x="348" y="274" width="230" height="36"/>
+    <rect class="accent" x="348" y="326" width="70" height="20" rx="3"/>
+    <text class="tag" x="360" y="341">Override</text>
+    <text class="sub" x="348" y="370">State cards + active rule list.</text>
+    <text class="sub" x="348" y="388">WebSocket refresh.</text>
+  </g>
+
+  <!-- rules -->
+  <g>
+    <rect class="card" x="620" y="120" width="270" height="300"/>
+    <rect class="head" x="620" y="120" width="270" height="44"/>
+    <text class="label" x="636" y="147">3 · Rules</text>
+    <text class="sub" x="636" y="178">list · create · edit · delete</text>
+    <rect class="mini" x="638" y="200" width="230" height="46"/>
+    <text class="tag" x="648" y="220">if motion &amp;&amp; after 18:00</text>
+    <text class="tag" x="648" y="236">then relay = on</text>
+    <rect class="mini" x="638" y="256" width="230" height="46"/>
+    <text class="tag" x="648" y="276">if light &lt; 80 lux</text>
+    <text class="tag" x="648" y="292">then relay = on</text>
+    <rect class="accent" x="638" y="316" width="72" height="22" rx="3"/>
+    <text class="tag" x="650" y="331">New rule</text>
+    <text class="sub" x="638" y="370">Registry-driven, validated.</text>
+    <text class="sub" x="638" y="388">Priority resolved per target.</text>
+  </g>
+
+  <!-- checklist -->
+  <g>
+    <rect class="card" x="910" y="120" width="270" height="300"/>
+    <rect class="head" x="910" y="120" width="270" height="44"/>
+    <text class="label" x="926" y="147">4 · Parts Checklist</text>
+    <text class="sub" x="926" y="178">wired parts · readiness</text>
+    <rect class="mini" x="928" y="200" width="230" height="30"/>
+    <text class="tag" x="938" y="220">DS3231 · DS3231 detect</text>
+    <rect class="mini" x="928" y="240" width="230" height="30"/>
+    <text class="tag" x="938" y="260">DHT11 · GPIO 4</text>
+    <rect class="mini" x="928" y="280" width="230" height="30"/>
+    <text class="tag" x="938" y="300">RCWL-0516 · GPIO 27</text>
+    <text class="sub" x="928" y="370">Unchecked parts become</text>
+    <text class="sub" x="928" y="388">data-quality findings.</text>
+  </g>
+
+  <!-- pairing -->
+  <g>
+    <rect class="card" x="1200" y="120" width="260" height="300"/>
+    <rect class="head" x="1200" y="120" width="260" height="44"/>
+    <text class="label" x="1216" y="147">5 · Pairing</text>
+    <text class="sub" x="1216" y="178">discover · approve · remove</text>
+    <rect class="mini" x="1218" y="200" width="224" height="40"/>
+    <text class="tag" x="1228" y="219">candidate #1 · relay</text>
+    <text class="tag" x="1228" y="234">unpaired · RSSI −54</text>
+    <rect class="accent" x="1218" y="254" width="80" height="22" rx="3"/>
+    <text class="tag" x="1230" y="269">Approve</text>
+    <rect class="mini" x="1218" y="292" width="224" height="34"/>
+    <text class="tag" x="1228" y="311">hall_motion · paired</text>
+    <text class="sub" x="1218" y="370">Pairing window + hello_ack.</text>
+    <text class="sub" x="1218" y="388">Unpair clears the registry.</text>
+  </g>
+
+  <!-- Row 2 -->
+  <!-- history redirect -->
+  <g>
+    <rect class="card" x="40" y="470" width="270" height="300"/>
+    <rect class="head" x="40" y="470" width="270" height="44"/>
+    <text class="label" x="56" y="497">6 · History Link</text>
+    <text class="sub" x="56" y="528">Hub → History Server</text>
+    <rect class="mini" x="58" y="550" width="234" height="80"/>
+    <text class="tag" x="68" y="575">smartsaveranalytic.me</text>
+    <text class="tag" x="68" y="595">HTTPS · redirect</text>
+    <rect class="accent" x="58" y="648" width="108" height="22" rx="3"/>
+    <text class="tag" x="70" y="663">Open savings</text>
+    <text class="sub" x="58" y="710">Optional destination.</text>
+    <text class="sub" x="58" y="728">Server can be absent.</text>
+  </g>
+
+  <!-- savings -->
+  <g>
+    <rect class="card" x="330" y="470" width="270" height="300"/>
+    <rect class="head" x="330" y="470" width="270" height="44"/>
+    <text class="label" x="346" y="497">7 · Savings Dashboard</text>
+    <text class="sub" x="346" y="528">summary · payback · trends</text>
+    <rect class="mini" x="348" y="550" width="105" height="62"/>
+    <rect class="mini" x="463" y="550" width="105" height="62"/>
+    <rect class="mini" x="348" y="622" width="220" height="42"/>
+    <text class="tag" x="360" y="648">per-part sparklines</text>
+    <rect class="accent" x="348" y="676" width="92" height="20" rx="3"/>
+    <text class="tag" x="360" y="691">Export</text>
+    <text class="sub" x="348" y="720">Hours · kWh · currency.</text>
+    <text class="sub" x="348" y="738">Could-have-saved advisory.</text>
+  </g>
+
+  <!-- config -->
+  <g>
+    <rect class="card" x="620" y="470" width="270" height="300"/>
+    <rect class="head" x="620" y="470" width="270" height="44"/>
+    <text class="label" x="636" y="497">8 · Configuration</text>
+    <text class="sub" x="636" y="528">per-part · tariff · currency</text>
+    <rect class="mini" x="638" y="550" width="230" height="30"/>
+    <text class="tag" x="648" y="570">power · baseline · schedule</text>
+    <rect class="mini" x="638" y="590" width="230" height="30"/>
+    <text class="tag" x="648" y="610">tariff override · confidence</text>
+    <rect class="mini" x="638" y="630" width="230" height="30"/>
+    <text class="tag" x="648" y="650">currency · comfort band</text>
+    <rect class="accent" x="638" y="676" width="80" height="20" rx="3"/>
+    <text class="tag" x="650" y="691">Save</text>
+    <text class="sub" x="638" y="720">API-key guarded writes.</text>
+  </g>
+
+  <!-- data quality -->
+  <g>
+    <rect class="card" x="910" y="470" width="270" height="300"/>
+    <rect class="head" x="910" y="470" width="270" height="44"/>
+    <text class="label" x="926" y="497">9 · Data Quality</text>
+    <text class="sub" x="926" y="528">degradation made visible</text>
+    <rect class="mini" x="928" y="550" width="230" height="30"/>
+    <text class="tag" x="938" y="570">hub uptime · sensor staleness</text>
+    <rect class="mini" x="928" y="590" width="230" height="30"/>
+    <text class="tag" x="938" y="610">module presence</text>
+    <rect class="mini" x="928" y="630" width="230" height="30"/>
+    <text class="tag" x="938" y="650">missing part configuration</text>
+    <text class="sub" x="928" y="710">Reliability + quality counters.</text>
+  </g>
+
+  <!-- reset -->
+  <g>
+    <rect class="card" x="1200" y="470" width="260" height="300"/>
+    <rect class="head" x="1200" y="470" width="260" height="44"/>
+    <text class="label" x="1216" y="497">10 · Settings + Reset</text>
+    <text class="sub" x="1216" y="528">destructive actions, guarded</text>
+    <rect class="mini" x="1218" y="550" width="224" height="38"/>
+    <text class="tag" x="1228" y="573">Reset configuration</text>
+    <rect class="mini" x="1218" y="598" width="224" height="38"/>
+    <text class="tag" x="1228" y="621">Reset all data</text>
+    <rect class="accent" x="1218" y="650" width="96" height="22" rx="3"/>
+    <text class="tag" x="1230" y="665">Confirm</text>
+    <text class="sub" x="1218" y="710">Shared API key required.</text>
+    <text class="sub" x="1218" y="728">Reset config vs reset all data.</text>
+  </g>
+
+  <text class="tag" x="40" y="835">Solid teal outlines mark the primary action on each screen; grey frames are content blocks, not separate pages.</text>
+</svg>
