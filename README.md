@@ -5,7 +5,8 @@ Static GitHub Pages site for the SmartSaver diagram set.
 ## What is here
 
 - `index.html` — the figure index, download buttons and print-friendly layout
-- `assets/` — 12 hand-authored SVG/PNG pairs and 5 Archify interactive/print HTML figures
+- `docs.html` — the full SmartSaver documentation with all 23 figures embedded
+- `assets/` — 13 hand-authored SVG/PNG pairs, UI figures, and 5 Archify interactive/print HTML figures
 - `smartsaver-diagrams.zip` — the complete bundle for sending to a groupmate
 
 No build step, no JavaScript framework, no external fonts or CDNs.
