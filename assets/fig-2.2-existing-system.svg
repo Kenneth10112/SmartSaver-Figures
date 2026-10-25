@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 780" role="img" aria-labelledby="title desc">
+  <title id="title">Existing System — Manual Energy Management</title>
+  <desc id="desc">The manual process before SmartSaver: appliances run unnoticed, waste is found hours later, and the monthly bill is the only feedback.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 28px; font-weight: 650; fill: #17212b; }
+    .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 14px; fill: #5b6675; }
+    .box { fill: #ffffff; stroke: #17212b; stroke-width: 1.5; rx: 6; }
+    .waste { fill: #ffffff; stroke: #9a671f; stroke-width: 2; rx: 6; }
+    .bill { fill: #ffffff; stroke: #a33a2a; stroke-width: 2; rx: 6; }
+    .label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 16px; font-weight: 650; fill: #17212b; }
+    .sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 11.5px; fill: #5b6675; }
+    .step { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 10.5px; fill: #5b6675; }
+    .arrow { fill: none; stroke: #2b6f78; stroke-width: 2; marker-end: url(#arrow); }
+    .loop { fill: none; stroke: #a33a2a; stroke-width: 2; stroke-dasharray: 6 5; marker-end: url(#arrowr); }
+    .tag { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 11px; fill: #5b6675; }
+    .note { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 12px; fill: #5b6675; }
+    .bracket { fill: none; stroke: #9a671f; stroke-width: 1.5; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0 0, 9 3.5, 0 7" fill="#2b6f78"/></marker>
+    <marker id="arrowr" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0 0, 9 3.5, 0 7" fill="#a33a2a"/></marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1500" height="780"/>
+  <text class="title" x="40" y="52">Existing System</text>
+  <text class="subtitle" x="40" y="78">Manual energy management before SmartSaver · no software, no sensors, no automation</text>
+
+  <!-- Steps -->
+  <g id="s1">
+    <rect class="box" x="40" y="190" width="200" height="130"/>
+    <text class="step" x="54" y="214">01</text>
+    <text class="label" x="54" y="240">Occupant leaves</text>
+    <text class="sub" x="54" y="264">no presence check</text>
+    <text class="sub" x="54" y="282">no schedule</text>
+  </g>
+
+  <g id="s2">
+    <rect class="box" x="280" y="190" width="200" height="130"/>
+    <text class="step" x="294" y="214">02</text>
+    <text class="label" x="294" y="240">Appliance runs</text>
+    <text class="sub" x="294" y="264">fan · light · AC</text>
+    <text class="sub" x="294" y="282">nothing switches it off</text>
+  </g>
+
+  <g id="s3">
+    <rect class="waste" x="520" y="190" width="200" height="130"/>
+    <text class="step" x="534" y="214">03</text>
+    <text class="label" x="534" y="240">Waste accumulates</text>
+    <text class="sub" x="534" y="264">hours, then days</text>
+    <text class="sub" x="534" y="282">no one sees it</text>
+  </g>
+
+  <g id="s4">
+    <rect class="box" x="760" y="190" width="200" height="130"/>
+    <text class="step" x="774" y="214">04</text>
+    <text class="label" x="774" y="240">Eventually noticed</text>
+    <text class="sub" x="774" y="264">walk past · hear it</text>
+    <text class="sub" x="774" y="282">feel the heat</text>
+  </g>
+
+  <g id="s5">
+    <rect class="box" x="1000" y="190" width="200" height="130"/>
+    <text class="step" x="1014" y="214">05</text>
+    <text class="label" x="1014" y="240">Manual switch-off</text>
+    <text class="sub" x="1014" y="264">walk through house</text>
+    <text class="sub" x="1014" y="282">switch by hand</text>
+  </g>
+
+  <g id="s6">
+    <rect class="bill" x="1240" y="190" width="200" height="130"/>
+    <text class="step" x="1254" y="214">06</text>
+    <text class="label" x="1254" y="240">Monthly bill</text>
+    <text class="sub" x="1254" y="264">only external data</text>
+    <text class="sub" x="1254" y="282">too late · aggregated</text>
+  </g>
+
+  <!-- Arrows -->
+  <line class="arrow" x1="240" y1="255" x2="280" y2="255"/>
+  <line class="arrow" x1="480" y1="255" x2="520" y2="255"/>
+  <line class="arrow" x1="720" y1="255" x2="760" y2="255"/>
+  <line class="arrow" x1="960" y1="255" x2="1000" y2="255"/>
+  <line class="arrow" x1="1200" y1="255" x2="1240" y2="255"/>
+
+  <!-- response-time bracket -->
+  <path class="bracket" d="M 620 365 L 620 385 L 1100 385 L 1100 365"/>
+  <text class="tag" x="860" y="405" text-anchor="middle">response time: hours to days</text>
+
+  <!-- feedback loop -->
+  <path class="loop" d="M 1340 320 L 1340 520 L 140 520 L 140 320"/>
+  <text class="tag" x="720" y="508" text-anchor="middle">only feedback is the bill — one month late, no room or appliance attribution</text>
+
+  <!-- Missing capabilities -->
+  <g id="notes">
+    <text class="note" x="40" y="590" font-weight="650">What the existing process cannot do</text>
+    <text class="note" x="40" y="618">No live sensor state, no rule evaluation, no actuator state confirmation.</text>
+    <text class="note" x="40" y="640">No near-real-time record of which room or appliance caused the waste.</text>
+    <text class="note" x="40" y="662">Action depends entirely on memory, habit and someone physically noticing.</text>
+    <text class="note" x="40" y="684">The loop closes only when the utility statement arrives.</text>
+
+    <text class="note" x="900" y="590" font-weight="650">Process characteristics</text>
+    <text class="tag" x="900" y="618">manual</text>
+    <text class="tag" x="900" y="640">reactive</text>
+    <text class="tag" x="900" y="662">unattributed</text>
+    <text class="tag" x="900" y="684">belated</text>
+  </g>
+</svg>
