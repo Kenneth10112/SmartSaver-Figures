@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 640" role="img" aria-labelledby="title desc">
+  <title id="title">Iterative Waterfall Model</title>
+  <desc id="desc">Six sequential development phases with a feedback loop from testing back to design.</desc>
+  <style>
+    .bg{fill:#fff}.title{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;font-size:28px;font-weight:650;fill:#17212b}
+    .sub{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;font-size:14px;fill:#5b6675}
+    .step{fill:#fff;stroke:#17212b;stroke-width:1.5;rx:6}.accent{fill:#f7f8fa}
+    .num{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11px;fill:#2f6b4f;font-weight:700}
+    .label{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;font-size:15px;font-weight:650;fill:#17212b}
+    .small{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;font-size:10.5px;fill:#5b6675}
+    .arrow{fill:none;stroke:#2b6f78;stroke-width:2;marker-end:url(#a)}
+    .loop{fill:none;stroke:#a33a2a;stroke-width:2;stroke-dasharray:6 5;marker-end:url(#ar)}
+    .tag{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;font-size:10.5px;fill:#5b6675}
+  </style>
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0 0,9 3.5,0 7" fill="#2b6f78"/></marker>
+    <marker id="ar" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0 0,9 3.5,0 7" fill="#a33a2a"/></marker>
+  </defs>
+  <rect class="bg" width="1400" height="640"/>
+  <text class="title" x="40" y="52">Iterative Waterfall Model</text>
+  <text class="sub" x="40" y="78">Sequential phases with a deliberate feedback path</text>
+
+  <g>
+    <rect class="step" x="40" y="180" width="180" height="95"/>
+    <text class="num" x="54" y="202">01</text>
+    <text class="label" x="54" y="228">Feasibility</text>
+    <text class="small" x="54" y="250">technical · operational</text>
+    <text class="small" x="54" y="266">economic viability</text>
+  </g>
+  <g>
+    <rect class="step" x="250" y="180" width="180" height="95"/>
+    <text class="num" x="264" y="202">02</text>
+    <text class="label" x="264" y="228">Requirements</text>
+    <text class="small" x="264" y="250">interviews · observation</text>
+    <text class="small" x="264" y="266">functional + non-functional</text>
+  </g>
+  <g>
+    <rect class="step accent" x="460" y="180" width="180" height="95"/>
+    <text class="num" x="474" y="202">03</text>
+    <text class="label" x="474" y="228">Design</text>
+    <text class="small" x="474" y="250">architecture · DFD · ERD</text>
+    <text class="small" x="474" y="266">wiring · interfaces</text>
+  </g>
+  <g>
+    <rect class="step" x="670" y="180" width="180" height="95"/>
+    <text class="num" x="684" y="202">04</text>
+    <text class="label" x="684" y="228">Coding</text>
+    <text class="small" x="684" y="250">incremental firmware</text>
+    <text class="small" x="684" y="266">server + dashboards</text>
+  </g>
+  <g>
+    <rect class="step accent" x="880" y="180" width="180" height="95"/>
+    <text class="num" x="894" y="202">05</text>
+    <text class="label" x="894" y="228">Testing</text>
+    <text class="small" x="894" y="250">unit · integration</text>
+    <text class="small" x="894" y="266">system · UAT</text>
+  </g>
+  <g>
+    <rect class="step" x="1090" y="180" width="180" height="95"/>
+    <text class="num" x="1104" y="202">06</text>
+    <text class="label" x="1104" y="228">Maintenance</text>
+    <text class="small" x="1104" y="250">deploy · orient</text>
+    <text class="small" x="1104" y="266">evaluate · refine</text>
+  </g>
+
+  <line class="arrow" x1="220" y1="228" x2="250" y2="228"/>
+  <line class="arrow" x1="430" y1="228" x2="460" y2="228"/>
+  <line class="arrow" x1="640" y1="228" x2="670" y2="228"/>
+  <line class="arrow" x1="850" y1="228" x2="880" y2="228"/>
+  <line class="arrow" x1="1060" y1="228" x2="1090" y2="228"/>
+
+  <path class="loop" d="M 970 275 L 970 390 L 550 390 L 550 275"/>
+  <text class="tag" x="760" y="382" text-anchor="middle">feedback from testing revises design and thresholds</text>
+  <text class="tag" x="760" y="420" text-anchor="middle">each cycle leaves a working increment</text>
+
+  <text class="tag" x="40" y="500">The model keeps the embedded validation order strict, while allowing the software increments to be revisited.</text>
+</svg>
