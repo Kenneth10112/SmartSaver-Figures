@@ -213,7 +213,7 @@
       </p>
       <div class="hero-actions">
         <a class="btn primary" href="smartsaver-diagrams.zip" download>Download all · ZIP</a>
-        <a class="btn" href="docs.html">View full docs structure →</a>
+        <a class="btn" href="docs.html">View full docs structure — final template →</a>
         <a class="btn green" href="#concept">Browse the figures</a>
         <a class="btn" href="#hardware">Hardware sheets</a>
       </div>
@@ -349,7 +349,7 @@
       <article class="card" id="timeline">
         <div class="thumb"><img src="assets/fig-2.9b-development-timeline.png" alt="Development and testing timeline" loading="lazy"></div>
         <div class="body">
-          <div class="meta"><span class="num">2.9b</span><span class="type">Timeline</span></div>
+          <div class="meta"><span class="num">2.22</span><span class="type">Timeline</span></div>
           <h3>Development + testing timeline</h3>
           <p>Build-log milestones from the 06 October spec through the 25 October figure QA pass.</p>
           <div class="actions">
@@ -373,7 +373,7 @@
       <article class="card" id="hub-wiring">
         <div class="thumb"><img src="assets/fig-2.17-hub-wiring.png" alt="Hub wiring with PSU, buck converter, sensors and buzzer" loading="lazy"></div>
         <div class="body">
-          <div class="meta"><span class="num">2.17</span><span class="type">Wiring</span></div>
+          <div class="meta"><span class="num">2.9</span><span class="type">Wiring</span></div>
           <h3>Hub wiring</h3>
           <p>ESP32, 12 V PSU → 5 V buck → microUSB, shared 3.3 V rail, RTC, DHT11, light sensor and buzzer.</p>
           <div class="actions">
@@ -387,7 +387,7 @@
       <article class="card" id="dual-relay">
         <div class="thumb"><img src="assets/fig-2.18-module-relay-dual.png" alt="Dual-channel relay module wiring" loading="lazy"></div>
         <div class="body">
-          <div class="meta"><span class="num">2.18</span><span class="type">Module</span></div>
+          <div class="meta"><span class="num">2.10</span><span class="type">Module</span></div>
           <h3>Dual-channel relay</h3>
           <p>C3 IN1 on GPIO 3, IN2 on GPIO 4, both channels driven together, normally-open contacts.</p>
           <div class="actions">
@@ -401,7 +401,7 @@
       <article class="card" id="ac-distribution">
         <div class="thumb"><img src="assets/fig-2.18b-relay-ac-distribution.png" alt="Relay AC distribution with splitter, outlets and charger" loading="lazy"></div>
         <div class="body">
-          <div class="meta"><span class="num">2.18b</span><span class="type">AC distribution</span></div>
+          <div class="meta"><span class="num">2.11</span><span class="type">AC distribution</span></div>
           <h3>Relay AC distribution</h3>
           <p>AC splitter → CH1 live / CH2 neutral → six parallel outlets; charger branch → USB-C → C3. PE bonded, not switched.</p>
           <div class="actions">
@@ -415,7 +415,7 @@
       <article class="card" id="single-relay">
         <div class="thumb"><img src="assets/fig-2.19-module-relay-single.png" alt="Single-channel light-fixture relay wiring" loading="lazy"></div>
         <div class="body">
-          <div class="meta"><span class="num">2.19</span><span class="type">Module</span></div>
+          <div class="meta"><span class="num">2.12</span><span class="type">Module</span></div>
           <h3>Single-channel fixture relay</h3>
           <p>Fixture relay on GPIO 3, GPIO 4 unused, COM/NO in the fixture lead, common ground.</p>
           <div class="actions">
@@ -429,7 +429,7 @@
       <article class="card" id="motion">
         <div class="thumb"><img src="assets/fig-2.20-module-motion.png" alt="Wireless motion module wiring" loading="lazy"></div>
         <div class="body">
-          <div class="meta"><span class="num">2.20</span><span class="type">Module</span></div>
+          <div class="meta"><span class="num">2.13</span><span class="type">Module</span></div>
           <h3>Wireless motion module</h3>
           <p>RCWL-0516 OUT → C3 GPIO 3, 5 V supply, common ground; transmit-only, no command parser.</p>
           <div class="actions">
@@ -453,7 +453,7 @@
       <article class="card" id="architecture">
         <div class="thumb"><img src="assets/system-architecture.png" alt="SmartSaver system architecture" loading="lazy"></div>
         <div class="body">
-          <div class="meta"><span class="num">2.21</span><span class="type">Archify · Architecture</span></div>
+          <div class="meta"><span class="num">A1</span><span class="type">Archify · Architecture</span></div>
           <h3>System architecture</h3>
           <p>Hub, wired parts, C3 modules, Wi-Fi/HTTPS, History Server and browser clients; one-way telemetry.</p>
           <div class="actions">
@@ -468,7 +468,7 @@
       <article class="card" id="data-flow">
         <div class="thumb"><img src="assets/data-flow.png" alt="SmartSaver data flow" loading="lazy"></div>
         <div class="body">
-          <div class="meta"><span class="num">2.22</span><span class="type">Archify · Data flow</span></div>
+          <div class="meta"><span class="num">A2</span><span class="type">Archify · Data flow</span></div>
           <h3>Data flow</h3>
           <p>Sense → stabilise → decide → record &amp; report, including the readings and events paths.</p>
           <div class="actions">
@@ -483,7 +483,7 @@
       <article class="card" id="pairing">
         <div class="thumb"><img src="assets/pairing-sequence.png" alt="SmartSaver pairing sequence" loading="lazy"></div>
         <div class="body">
-          <div class="meta"><span class="num">2.23</span><span class="type">Archify · Sequence</span></div>
+          <div class="meta"><span class="num">A3</span><span class="type">Archify · Sequence</span></div>
           <h3>Pairing sequence</h3>
           <p>HELLO, candidate, approval, <code>mod_id</code> assignment, state report and dashboard confirmation.</p>
           <div class="actions">
@@ -498,7 +498,7 @@
       <article class="card" id="rule-workflow">
         <div class="thumb"><img src="assets/rule-workflow.png" alt="SmartSaver rule workflow" loading="lazy"></div>
         <div class="body">
-          <div class="meta"><span class="num">2.24</span><span class="type">Archify · Workflow</span></div>
+          <div class="meta"><span class="num">A4</span><span class="type">Archify · Workflow</span></div>
           <h3>Rule workflow</h3>
           <p>Trigger, override and priority resolution, dispatch, state report and event posting.</p>
           <div class="actions">
@@ -513,7 +513,7 @@
       <article class="card" id="lifecycle">
         <div class="thumb"><img src="assets/deployment-lifecycle.png" alt="SmartSaver deployment lifecycle" loading="lazy"></div>
         <div class="body">
-          <div class="meta"><span class="num">2.25</span><span class="type">Archify · Lifecycle</span></div>
+          <div class="meta"><span class="num">A5</span><span class="type">Archify · Lifecycle</span></div>
           <h3>Deployment lifecycle</h3>
           <p>Setup AP → Wi-Fi → pairing → normal operation → server offline → retry → reporting restored.</p>
           <div class="actions">
